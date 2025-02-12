@@ -1,0 +1,81 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Range"
+						}
+					}
+				]
+			},
+			"sub_headeing": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Wooden"
+						}
+					}
+				]
+			},
+			"contact": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu non ea ut consectetur non sunt elit veniam incididunt mollit quis qui non cillum."
+						}
+					}
+				]
+			},
+			"location_card": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading4",
+											"content": {
+												"text": "Truck"
+											}
+										}
+									]
+								}
+							],
+							[
+								"place",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "door",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"location_map": {
+				"__TYPE__": "GeoPointContent",
+				"position": {
+					"lat": 48.8606111,
+					"lng": 2.337644
+				}
+			}
+		},
+		"items": []
+	}
+]

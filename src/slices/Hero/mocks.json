@@ -1,0 +1,57 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Engineering",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"contant": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "JN Consulting is an expert in engineering that operates\nglobally. Through two generations of experience and passion\nwe are able to provide successful and holistic services.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"sub_headeing": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Excellence in",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "LinkContent",
+				"key": "f1a5e92d-610f-4e74-9784-1a630396fc0d",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "answer"
+				}
+			}
+		},
+		"items": []
+	}
+]
