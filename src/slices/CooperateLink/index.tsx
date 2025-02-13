@@ -61,7 +61,7 @@ const CooperateLink: FC<CooperateLinkProps> = ({ slice }) => {
           field={slice.primary.contact}
           components={{
             paragraph: ({ children }) => (
-              <p className="text-gray-600 mb-8">{children}</p>
+              <p className="tex-white mb-8">{children}</p>
             ),
           }}
         />

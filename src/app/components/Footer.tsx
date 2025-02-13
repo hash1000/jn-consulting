@@ -19,7 +19,7 @@ export default async function Footer() {
   const data = await client.getSingle("settings");
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center max-w-[80%] mx-auto">
       <div
         className="py-5"
         data-aos="fade-right"
@@ -35,26 +35,33 @@ export default async function Footer() {
       </div>
 
       <div
-        // data-aos="fade-right"
-        // data-aos-delay="50"
-        // data-aos-offset="100"
+        data-aos="fade-right"
         className="flex gap-2"
+        style={{opacity:100}}
       >
-        {data.data.footer_link.map((item: any, index: number) => (
-          <PrismicNextLink key={index} href={item.link.url ?? "#"}>
-            {item.lable}{" "}
-            {index !== data.data.footer_link.length - 1 && (
-              <span className="px-2">|</span>
-            )}
-          </PrismicNextLink>
-        ))}
+        {data?.data?.footer_link?.length > 0 ? (
+          data.data.footer_link.map((item: any, index: number) => (
+            <div key={index} className="flex items-center">
+              <PrismicNextLink
+                href={item.link?.url ?? "#"}
+                className="text-white"
+              >
+                {item.lable}
+              </PrismicNextLink>
+              {index !== data.data.footer_link.length - 1 && (
+                <span className="px-2 text-gray-500 dark:text-gray-400">|</span>
+              )}
+            </div>
+          ))
+        ) : (
+          <div className="text-gray-500 dark:text-gray-400">
+            No links available
+          </div>
+        )}
       </div>
 
       <div
-        className="flex  gap-2 p-5"
-        data-aos="fade-left"
-        data-aos-delay="50"
-        data-aos-offset="100"
+        className="flex gap-2 p-5 relative"
       >
         {data.data.footer_icon.map((item: any, index: number) => {
           const IconComponent = iconComponents[item.icon.toLowerCase()]; // Ensure case matching

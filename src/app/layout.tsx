@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AOSInitializer from "./components/AOSInitializer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "aos/dist/aos.css"; 
+import { montserrat, roboto } from "./font";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.className}  ${montserrat.className} antialiased`} 
       >
-        <AOSInitializer /> {/* Initialize AOS */}
+        <AOSInitializer />
         <Header />
         {children}
         <Footer />

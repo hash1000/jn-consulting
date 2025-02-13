@@ -5,6 +5,7 @@ import Bounded from "@/app/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import { RiRadioButtonFill } from "react-icons/ri";
+import SingleImageMask from "@/app/components/SingleImageMask";
 
 /**
  * Props for `Team`.
@@ -23,34 +24,25 @@ const Team: FC<TeamProps> = ({ slice }) => {
     >
       <div className="text-center w-full">
         {/* Render the label */}
-        <div
-                 data-aos="fade-right"
-                 data-aos-delay="100"
-                 data-aos-offset="200"
-        >
-<PrismicRichText
-          field={slice.primary.heading}
-          components={{
-            heading1: ({ children }) => (
-              <h2 className="text-4xl font-bold mb-4 flex items-center justify-center">
-                {children}
-                <span className="text-primary ml-3 text-[#6FDCD6]">
-                  <PrismicRichText field={slice.primary.sub_headeing} />
-                </span>
-              </h2>
-            ),
-          }}
-        />
+        <div data-aos="fade-right" data-aos-delay="100" data-aos-offset="200">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading1: ({ children }) => (
+                <h2 className="text-4xl font-bold mb-4 flex items-center justify-center">
+                  {children}
+                  <span className="text-primary ml-3 text-[#6FDCD6]">
+                    <PrismicRichText field={slice.primary.sub_headeing} />
+                  </span>
+                </h2>
+              ),
+            }}
+          />
         </div>
-        
 
         {/* Render the description */}
-        <div
-                 data-aos="fade-right"
-                 data-aos-delay="50"
-                 data-aos-offset="200"
-        >
-        <PrismicRichText field={slice.primary.contact} />
+        <div data-aos="fade-right" data-aos-delay="50" data-aos-offset="200">
+          <PrismicRichText field={slice.primary.contact} />
         </div>
 
         {/* Render the cards */}
@@ -64,48 +56,53 @@ const Team: FC<TeamProps> = ({ slice }) => {
               }}
             >
               {/* Card Image */}
-              <div className="flex gap-2 items-center"
-              data-aos="fade-right"
-              data-aos-delay="50"
-              data-aos-offset="200"
+              <div
+                className="flex gap-2 items-center"
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-offset="200"
               >
                 {item.person_image && (
-                  <div className="mb-4 w-full max-w-[270px]">
-                    <Image
-                      src={item.person_image.url || ""}
-                      alt="person image"
-                      width={203}
-                      height={203}
+                  <div className="mb-4 w-full max-w-[260px]">
+                    <SingleImageMask
+                      imgWidth={200}
+                      imgHeight={200}
+                      imgUrl={item.person_image.url}
                     />
                   </div>
                 )}
 
                 {/* Card Text */}
                 <div className="text-start">
-                  <div className="text-xl font-semibold mb-2 text-start text-[#6FDCD6]"
-                  data-aos="fade-left"
-                  data-aos-delay="100"
-                  data-aos-offset="200"
-                >
+                  <div
+                    className="text-xl font-semibold mb-2 text-start text-[#6FDCD6]"
+                    data-aos="fade-left"
+                    data-aos-delay="100"
+                    data-aos-offset="200"
+                  >
                     <PrismicRichText field={item.name} />
                   </div>
-                  <div className="flex gap-2 text-start text-[#39B48E] "
-                  data-aos="fade-left"
-                  data-aos-delay="50"
-                  data-aos-offset="200"
+                  <div
+                    className="flex gap-2 text-start text-[#39B48E] "
+                    data-aos="fade-left"
+                    data-aos-delay="50"
+                    data-aos-offset="200"
                   >
                     <div className="flex gap-2 text-sm opacity-75">
-                    <RiRadioButtonFill color="#6FDCD6"/><PrismicRichText field={item.desigation} />
+                      <RiRadioButtonFill color="#6FDCD6" />
+                      <PrismicRichText field={item.desigation} />
                     </div>
                     <div className="flex gap-2 text-sm opacity-75 text-[#39B48E]">
-                    <RiRadioButtonFill color="#6FDCD6"/> <PrismicRichText field={item.feild} />
+                      <RiRadioButtonFill color="#6FDCD6" />{" "}
+                      <PrismicRichText field={item.feild} />
                     </div>
                   </div>
 
-                  <div className="mt-2 text-sm text-start"
-                  data-aos="fade-up"
-                  data-aos-delay="50"
-                  data-aos-offset="200"
+                  <div
+                    className="mt-2 text-sm text-start"
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                    data-aos-offset="200"
                   >
                     <PrismicRichText field={item.description} />
                   </div>

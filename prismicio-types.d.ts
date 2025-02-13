@@ -4,6 +4,53 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *dropdown → dropdown*
+ */
+export interface GropdownDocumentDataDropdownItem {
+  /**
+   * link field in *dropdown → dropdown*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gropdown.dropdown[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for dropdown documents
+ */
+interface GropdownDocumentData {
+  /**
+   * dropdown field in *dropdown*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gropdown.dropdown[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  dropdown: prismic.GroupField<Simplify<GropdownDocumentDataDropdownItem>>;
+}
+
+/**
+ * dropdown document from Prismic
+ *
+ * - **API ID**: `gropdown`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GropdownDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<GropdownDocumentData>,
+    "gropdown",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice =
   | LocationSlice
   | CooperateLinkSlice
@@ -137,32 +184,7 @@ export interface SettingsDocumentDataFooterIconItem {
   icon: prismic.KeyTextField;
 }
 
-/**
- * Item in *settings → Navbar*
- */
-export interface SettingsDocumentDataNavbarItem {
-  /**
-   * link field in *settings → Navbar*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navbar[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * lable field in *settings → Navbar*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navbar[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-type SettingsDocumentDataSlicesSlice = never;
+type SettingsDocumentDataSlicesSlice = TopNavbarSlice;
 
 /**
  * Content for settings documents
@@ -246,17 +268,6 @@ interface SettingsDocumentData {
   footer_icon: prismic.GroupField<Simplify<SettingsDocumentDataFooterIconItem>>;
 
   /**
-   * Navbar field in *settings*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navbar[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  navbar: prismic.GroupField<Simplify<SettingsDocumentDataNavbarItem>>;
-
-  /**
    * Slice Zone field in *settings*
    *
    * - **Field Type**: Slice Zone
@@ -284,7 +295,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | GropdownDocument
+  | HomepageDocument
+  | SettingsDocument;
 
 /**
  * Item in *CooperateLink → Default → Primary → Cooperate links*
@@ -399,6 +413,21 @@ export type CooperateLinkSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Hero → Default → Primary → Hexa Grid*
+ */
+export interface HeroSliceDefaultPrimaryHexaGridItem {
+  /**
+   * Hexa Image field in *Hero → Default → Primary → Hexa Grid*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hexa_grid[].hexa_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hexa_image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -461,6 +490,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Hexa Grid field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hexa_grid[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  hexa_grid: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryHexaGridItem>>;
 }
 
 /**
@@ -990,6 +1029,123 @@ type TeamSliceVariation = TeamSliceDefault;
 export type TeamSlice = prismic.SharedSlice<"team", TeamSliceVariation>;
 
 /**
+ * Item in *Header → Default → Primary → Navbar*
+ */
+export interface TopNavbarSliceDefaultPrimaryNavbarItem {
+  /**
+   * Link field in *Header → Default → Primary → Navbar*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.navbar[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * lable field in *Header → Default → Primary → Navbar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.navbar[].lable
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  lable: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Header → Default → Primary → service sub menu*
+ */
+export interface TopNavbarSliceDefaultPrimaryServiceSubMenuItem {
+  /**
+   * link field in *Header → Default → Primary → service sub menu*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.service_sub_menu[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * lable field in *Header → Default → Primary → service sub menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.service_sub_menu[].lable
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  lable: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Header → Default → Primary*
+ */
+export interface TopNavbarSliceDefaultPrimary {
+  /**
+   * Logo field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Navbar field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.navbar[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navbar: prismic.GroupField<Simplify<TopNavbarSliceDefaultPrimaryNavbarItem>>;
+
+  /**
+   * service sub menu field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_navbar.default.primary.service_sub_menu[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service_sub_menu: prismic.GroupField<
+    Simplify<TopNavbarSliceDefaultPrimaryServiceSubMenuItem>
+  >;
+}
+
+/**
+ * Default variation for Header Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TopNavbarSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TopNavbarSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Header*
+ */
+type TopNavbarSliceVariation = TopNavbarSliceDefault;
+
+/**
+ * Header Shared Slice
+ *
+ * - **API ID**: `top_navbar`
+ * - **Description**: TopNavbar
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TopNavbarSlice = prismic.SharedSlice<
+  "top_navbar",
+  TopNavbarSliceVariation
+>;
+
+/**
  * Item in *Vacencies → Default → Primary → vacency card*
  */
 export interface VacenciesSliceDefaultPrimaryVacencyCardItem {
@@ -1128,6 +1284,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      GropdownDocument,
+      GropdownDocumentData,
+      GropdownDocumentDataDropdownItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -1135,7 +1294,6 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataFooterLinkItem,
       SettingsDocumentDataFooterIconItem,
-      SettingsDocumentDataNavbarItem,
       SettingsDocumentDataSlicesSlice,
       AllDocumentTypes,
       CooperateLinkSlice,
@@ -1144,6 +1302,7 @@ declare module "@prismicio/client" {
       CooperateLinkSliceVariation,
       CooperateLinkSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryHexaGridItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
@@ -1167,6 +1326,12 @@ declare module "@prismicio/client" {
       TeamSliceDefaultPrimary,
       TeamSliceVariation,
       TeamSliceDefault,
+      TopNavbarSlice,
+      TopNavbarSliceDefaultPrimaryNavbarItem,
+      TopNavbarSliceDefaultPrimaryServiceSubMenuItem,
+      TopNavbarSliceDefaultPrimary,
+      TopNavbarSliceVariation,
+      TopNavbarSliceDefault,
       VacenciesSlice,
       VacenciesSliceDefaultPrimaryVacencyCardItem,
       VacenciesSliceDefaultPrimary,

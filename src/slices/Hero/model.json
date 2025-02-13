@@ -65,6 +65,23 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "hexa_grid": {
+          "type": "Group",
+          "config": {
+            "label": "Hexa Grid",
+            "repeat": true,
+            "fields": {
+              "hexa_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Hexa Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

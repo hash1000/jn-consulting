@@ -1,7 +1,8 @@
-import { FC } from "react";
+"use client";
+import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/app/components/Bounded";
 import Image from "next/image";
 
@@ -14,9 +15,18 @@ export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
  * Component for "Services" Slices.
  */
 const Services: FC<ServicesProps> = ({ slice }) => {
+  const [isHovered, setIsHovered] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    setIsHovered(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(null);
+  };
   return (
     <Bounded
-      className="pt-[100px] mx-auto w-full max-w-6xl"
+      className="pt-[100px] mx-auto w-full max-w-[80%]"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
@@ -42,7 +52,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
             field={slice.primary.description}
             components={{
               paragraph: ({ children }) => (
-                <p className="text-gray-600 mb-8">{children}</p>
+                <p className="text-white mb-8">{children}</p>
               ),
             }}
           />
@@ -50,7 +60,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
 
         {/* Render the cards */}
         <div
-          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-4 gap-4 place-items-center "
           data-aos="fade-left"
           data-aos-delay="50"
           data-aos-offset="200"
@@ -59,44 +69,42 @@ const Services: FC<ServicesProps> = ({ slice }) => {
             <PrismicNextLink
               key={index}
               field={item.card_link}
-              className="p-6 rounded-lg shadow-lg text-white hover:!bg-[#51B0AB] transition-colors duration-300"
+              className="p-6 rounded-lg shadow-lg text-white transition-colors duration-300 flex flex-col h-full"
               style={{
-                background:
-                  "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
+                background: isHovered===index
+                  ? "#51B0AB"
+                  : "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
               }}
+              onMouseEnter={()=>handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Card Image */}
               {item.card_image && (
                 <div className="mb-4 max-w-[270px]">
                   <Image
-                    src={item.card_image.url || ""} // Use the URL from Prismic
-                    alt={item.card_image.alt || "Card Image"} // Provide a fallback alt text
-                    width={270} // Set a fixed width
-                    height={180} // Set a fixed height
-                    className="w-full h-auto" // Ensure the image is responsive
+                    src={item.card_image.url || ""}
+                    alt={item.card_image.alt || "Card Image"}
+                    width={270}
+                    height={180}
+                    className="w-full h-auto"
                   />
                 </div>
               )}
 
-              {/* Card Heading */}
-              <PrismicRichText
-                field={item.card_heading}
-                components={{
-                  heading1: ({ children }) => (
-                    <h1 className="text-4xl font-bold mb-2">{children}</h1>
-                  ),
-                }}
-              />
+              {/* Card Content */}
+              <div className="flex-grow">
+                {item.card_heading && (
+                  <div className="text-2xl font-bold mb-2">
+                    <PrismicRichText field={item.card_heading} />
+                  </div>
+                )}
 
-              {/* Card Subheading */}
-              <PrismicRichText
-                field={item.card_sub_heading}
-                components={{
-                  heading1: ({ children }) => (
-                    <h1 className="text-4xl font-bold ">{children}</h1> // Adjust text color for readability
-                  ),
-                }}
-              />
+                {item.card_sub_heading && (
+                  <div className="text-lg font-semibold mb-2">
+                    <PrismicRichText field={item.card_sub_heading} />
+                  </div>
+                )}
+              </div>
             </PrismicNextLink>
           ))}
         </div>

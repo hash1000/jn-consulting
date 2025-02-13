@@ -48,13 +48,13 @@ const Partners: FC<PartnersProps> = ({ slice }) => {
           field={slice.primary.contact}
           components={{
             paragraph: ({ children }) => (
-              <p className="text-gray-600 mb-8">{children}</p>
+              <p className="tex-white mb-8">{children}</p>
             ),
           }}
         />
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[1200px] mx-auto"
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[80%] mx-auto"
         
         data-aos="fade-left"
         data-aos-delay="50"

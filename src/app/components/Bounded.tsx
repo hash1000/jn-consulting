@@ -16,15 +16,22 @@ export default function Bounded({
   ...restProp
 }: BoundedProps) {
   // Inline style for background image
-  const style = backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {};
+  const style = backgroundImage
+    ? {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }
+    : {};
 
   return (
-    <Comp 
-      className={clsx("md:py-14", className)} 
+    <Comp
+      className={clsx("md:py-14", className)}
       style={style} // Apply the style here
       {...restProp}
     >
-      <div className="w-full">{children}</div>
+      {children}
     </Comp>
   );
 }

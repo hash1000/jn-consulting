@@ -9,5 +9,6 @@ export const components = {
   partners: dynamic(() => import("./Partners")),
   services: dynamic(() => import("./Services")),
   team: dynamic(() => import("./Team")),
+  top_navbar: dynamic(() => import("./Header")),
   vacencies: dynamic(() => import("./Vacencies")),
 };

@@ -22,42 +22,38 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
     >
       <div className="text-center">
         {/* Heading and Subheading */}
-        <div
-        data-aos="fade-right"
-        data-aos-delay="50"
-        data-aos-offset="300"
-        >
-<PrismicRichText
-          field={slice.primary.heading}
-          components={{
-            heading1: ({ children }) => (
-              <h2 className="text-4xl font-bold mb-4 flex justify-center items-center">
-                {children}
-                <span className="text-primary ml-3 text-[#6FDCD6]">
-                  <PrismicRichText field={slice.primary.sub_headeing} />
-                </span>
-              </h2>
-            ),
-          }}
-        />
-
+        <div data-aos="fade-right" data-aos-delay="50" data-aos-offset="300">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading1: ({ children }) => (
+                <h2 className="text-4xl font-bold mb-4 flex justify-center items-center text-uppercase">
+                  {children}
+                  <span className="text-primary ml-3 text-[#6FDCD6] text-uppercase">
+                    <PrismicRichText field={slice.primary.sub_headeing} />
+                  </span>
+                </h2>
+              ),
+            }}
+          />
         </div>
-        
+
         {/* Description */}
         <PrismicRichText
           field={slice.primary.conatct}
           components={{
             paragraph: ({ children }) => (
-              <p className="text-gray-600 mb-8">{children}</p>
+              <p className="tex-white mb-8">{children}</p>
             ),
           }}
         />
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[1200px] mx-auto"
-        data-aos="fade-right"
-        data-aos-delay="50"
-        data-aos-offset="300"
+        <div
+          className="grid grid-cols-1 md:grid-cols-4 w-full max-w-[80%] mx-auto  gap-4 place-items-center"
+          data-aos="fade-right"
+          data-aos-delay="50"
+          data-aos-offset="300"
         >
           {slice.primary.vacency_card.map((item, index) => (
             <div
@@ -69,15 +65,15 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
               }}
             >
               {item.card_image && (
-                                <div className="mb-4 w-full max-w-[270px]">
-                                  <Image
-                                    src={item.card_image.url || ""}
-                                    alt="person image"
-                                    width={203}
-                                    height={203}
-                                  />
-                                </div>
-                              )}
+                <div className="mb-4 w-full max-w-[270px]">
+                  <Image
+                    src={item.card_image.url || ""}
+                    alt="person image"
+                    width={203}
+                    height={203}
+                  />
+                </div>
+              )}
               <PrismicRichText
                 field={item.card_heading}
                 components={{

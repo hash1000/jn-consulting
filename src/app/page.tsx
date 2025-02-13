@@ -1,35 +1,24 @@
+// app/page.tsx
 import { Metadata } from "next";
 import { isFilled, asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Tsparticles from "./components/Tsparticles";
 
-export default async function Page() {
-  const client = createClient();
-  const page = await client.getSingle("homepage");
-  
-//  return <h1>Body</h1>
-  return <SliceZone slices={page.data.slices} components={components} />;
-}
 
-export async function generateMetadata(): Promise<Metadata> {
+export default async function Home() {
   const client = createClient();
   const page = await client.getSingle("homepage");
 
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-    openGraph: {
-      title: isFilled.keyText(page.data.meta_title)
-        ? page.data.meta_title
-        : undefined,
-      description: isFilled.keyText(page.data.meta_description)
-        ? page.data.meta_description
-        : undefined,
-      images: isFilled.image(page.data.meta_image)
-        ? [asImageSrc(page.data.meta_image)]
-        : undefined,
-    },
-  };
+  return (
+    <div style={{ position: "relative" }}>
+      <Tsparticles />
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+    </div>
+  );
 }
+
+// ... keep your existing generateMetadata function

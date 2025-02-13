@@ -41,14 +41,14 @@ const Location: FC<LocationProps> = ({ slice }) => {
               field={slice.primary.contact}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-gray-600 mb-8">{children}</p>
+                  <p className="tex-white mb-8">{children}</p>
                 ),
               }}
             />
           </div>
 
           {/* Cards and Map Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[80%] mx-auto">
             {/* Location Cards */}
             <div
               data-aos="fade-left"
@@ -58,7 +58,7 @@ const Location: FC<LocationProps> = ({ slice }) => {
               {slice.primary.location_card.map((item, index) => (
                 <div
                   key={index}
-                  className="p-5 rounded-lg flex gap-2 mb-2 shadow-lg bg-[#2B465B] text-black items-center text-start border-l-4 border-[#6FDCD6]"
+                  className="p-5 rounded-lg flex gap-2 mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
                 >
                   <FaLocationDot color="#6FDCD6" />
                   <div>
@@ -98,7 +98,7 @@ const Location: FC<LocationProps> = ({ slice }) => {
                 {latitude && longitude ? (
                   <Map latitude={latitude} longitude={longitude} />
                 ) : (
-                  <p className="text-gray-600 flex justify-center items-center h-full">
+                  <p className="tex-white flex justify-center items-center h-full">
                     Location data not available.
                   </p>
                 )}
