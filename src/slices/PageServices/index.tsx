@@ -112,16 +112,14 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
 
           {/* Render the cards */}
           <div
-            className={`grid grid-cols-1 
+            className={` 
     ${
       slice.primary.card.length === 2
-        ? "md:grid-cols-2"
-        : slice.primary.card.length === 3
-          ? "md:grid-cols-3"
+        ? "flex justify-center"
           : slice.primary.card.length === 4
-            ? "md:grid-cols-2"
+            ? "flex"
             : slice.primary.card.length > 5
-              ? "md:grid-cols-3"
+              ? " grid grid-cols-1 md:grid-cols-3"
               : "md:grid-cols-4"
     } 
     gap-6 place-items-center max-w-[1370px] mx-auto`}

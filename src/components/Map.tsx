@@ -1,5 +1,4 @@
 "use client";
-
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 interface MapProps {
@@ -16,7 +15,7 @@ const MapComponent: React.FC<MapProps> = ({ latitude, longitude }) => {
   const center = { lat: latitude, lng: longitude };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyARMf5GLa2OSX5zdLDu-CZTso1ecu7JsLw">
+    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
         <Marker position={center} />
       </GoogleMap>

@@ -31,7 +31,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <div
-        className={`flex justify-center ${slice.primary.hexa_grid?.length > 0 && "items-baseline"} w-full pt-20 relative max-w-[80%] mx-auto`}
+        className={`flex justify-center ${slice.primary.hexa_grid?.length > 0 && "items-baseline"} w-full pt-20 relative max-w-[1920px] mx-auto`}
         data-aos="fade-right"
         data-aos-offset="200"
       >

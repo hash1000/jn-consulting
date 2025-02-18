@@ -27,7 +27,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   console.log("slice",slice.primary.card);
   return (
     <Bounded
-      className="pt-[100px] mx-auto w-full max-w-[80%]"
+      className="pt-[100px] mx-auto w-full max-w-[1440px]"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

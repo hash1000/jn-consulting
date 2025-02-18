@@ -54,7 +54,7 @@ const Partners: FC<PartnersProps> = ({ slice }) => {
         />
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[80%] mx-auto"
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[1440px] mx-auto"
         
         data-aos="fade-left"
         data-aos-delay="50"

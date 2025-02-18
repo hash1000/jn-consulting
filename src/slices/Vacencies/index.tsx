@@ -17,7 +17,7 @@ export type VacenciesProps = SliceComponentProps<Content.VacenciesSlice>;
 const Vacencies: FC<VacenciesProps> = ({ slice }) => {
   return (
     <Bounded
-      className="pt-[100px] w-full"
+      className="pt-[100px] w-full max-w-[1370px] mx-auto"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

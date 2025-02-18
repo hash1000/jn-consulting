@@ -20,7 +20,7 @@ export default function Bounded({
     ? {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
         backgroundRepeat: "no-repeat"
       }
     : {};

@@ -21,7 +21,7 @@ export const Modal: FC<ModalProps> = ({ shouldShow, onRequestClose, children }) 
       onClick={onRequestClose}
     >
       <div
-        className="bg-white rounded-lg shadow-lg"
+        className="bg-[#06263E] rounded-lg shadow-lg"
         data-aos="zoom-in"
         data-aos-duration="300"
         onClick={(e) => e.stopPropagation()}

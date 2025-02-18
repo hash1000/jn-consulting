@@ -13,7 +13,7 @@ const Location: FC<LocationProps> = ({ slice }) => {
   return (
     <>
       <Bounded
-        className="pt-[100px] w-full"
+        className="pt-[100px] w-full max-w-[1920px] mx-auto"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
