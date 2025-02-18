@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/components/Bounded";
 import Image from "next/image";
 
 /**
@@ -100,7 +100,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
                 )}
 
                 {item.card_sub_heading && (
-                  <div className="text-lg font-semibold mb-2">
+                  <div className="text-2xl font-semibold mb-2">
                     <PrismicRichText field={item.card_sub_heading} />
                   </div>
                 )}

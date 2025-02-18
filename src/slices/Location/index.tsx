@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/components/Bounded";
 import { FaLocationDot } from "react-icons/fa6";
-import Map from "@/app/components/Map";
+import Map from "@/components/Map";
 
 export type LocationProps = SliceComponentProps<Content.LocationSlice>;
 
@@ -50,32 +50,37 @@ const Location: FC<LocationProps> = ({ slice }) => {
           {/* Cards and Map Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[80%] mx-auto">
             {/* Location Cards */}
-            <div
-              data-aos="fade-left"
-              data-aos-delay="100"
-              data-aos-offset="500"
-            >
-              {slice.primary.location_card.map((item, index) => (
-                <div
-                  key={index}
-                  className="p-5 rounded-lg flex gap-2 mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
-                >
-                  <FaLocationDot color="#6FDCD6" />
-                  <div>
-                    <PrismicRichText
-                      field={item.title}
-                      components={{
-                        heading1: ({ children }) => (
-                          <h1 className="text-4xl text-[#6FDCD6] font-bold mb-2">
-                            {children}
-                          </h1>
-                        ),
-                      }}
-                    />
-                    <div className="text-[#6FDCD6]">{item.place}</div>
+            <div>
+              {slice.primary.location_card.map((item, index) => {
+                // let delay = 0;
+                // if(index===0){
+                //   delay=50;
+                // }
+                return (
+                  <div
+                    // data-aos="fade-left"
+                    // data-aos-delay={`${index+1}00`}
+                    // data-aos-offset="500"
+                    key={index}
+                    className="p-5 rounded-lg flex gap-4   mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
+                  >
+                    <FaLocationDot color="#6FDCD6" />
+                    <div>
+                      <PrismicRichText
+                        field={item.title}
+                        components={{
+                          heading1: ({ children }) => (
+                            <h1 className="text-4xl text-[#6FDCD6] font-bold mb-2">
+                              {children}
+                            </h1>
+                          ),
+                        }}
+                      />
+                      <div className="text-[#6FDCD6]">{item.place}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Map Section */}

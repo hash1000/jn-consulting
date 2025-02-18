@@ -6,7 +6,17 @@
 
 body {
   color: white;
-  /* background: #06263E; */
+  background: #06263E;
+}
+
+body[data-aos-delay='1000'] [data-aos],
+  [data-aos][data-aos][data-aos-delay='1000'] {
+    transition-delay: 1s;
+}
+
+body[data-aos-delay='800'] [data-aos],
+  [data-aos][data-aos][data-aos-delay='800'] {
+    transition-delay: 0.8s;
 }
 
 .custom-hexagon {
@@ -22,7 +32,5 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #6FDCD6;
-  border-bottom: 2px solid #6FDCD6;
-
+  color: white;
 }

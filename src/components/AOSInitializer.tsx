@@ -8,7 +8,8 @@ export default function AOSInitializer() {
   useEffect(() => {
     AOS.init({
       offset: 200, // Offset (in px) from the original trigger point
-      delay: 100, // Delay (in ms) for the animation
+      delay: 50, // Delay (in ms) for the animation
+      animatedClassName: 'aos-animate',
       duration: 1000, // Duration of the animation
       easing: "ease-in-out", // Easing type
       once: true, // Whether animation should happen only once

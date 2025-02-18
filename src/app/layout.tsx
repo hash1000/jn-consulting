@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AOSInitializer from "./components/AOSInitializer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import AOSInitializer from "../components/AOSInitializer";
 import "aos/dist/aos.css"; 
 import { montserrat, roboto } from "./font";
 

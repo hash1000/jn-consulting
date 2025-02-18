@@ -1,27 +1,20 @@
 import { Metadata } from "next";
 import { isFilled, asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
+
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import Tsparticles from "../components/Tsparticles";
 
-export default async function Home() {
+export default async function Page() {
   const client = createClient();
-  const page = await client.getSingle("homepage");
+  const page = await client.getSingle("itsoftwaresolutions");
 
-  return (
-    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-      <Tsparticles />
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-        <SliceZone slices={page.data.slices} components={components} />
-      </div>
-    </div>
-  );
+  return <SliceZone slices={page.data.slices} components={components} />;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const page = await client.getSingle("homepage");
+  const page = await client.getSingle("itsoftwaresolutions");
 
   return {
     title: page.data.meta_title,

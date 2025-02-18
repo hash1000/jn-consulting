@@ -1,0 +1,72 @@
+{
+  "id": "automotive_contant",
+  "type": "SharedSlice",
+  "name": "AutomotiveContant",
+  "description": "AutomotiveContant",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "main heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,heading1"
+          }
+        },
+        "hexa": {
+          "type": "Group",
+          "config": {
+            "label": "hexa image",
+            "repeat": true,
+            "fields": {
+              "hexa_image_3": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "contant": {
+          "type": "Group",
+          "config": {
+            "label": "contant",
+            "repeat": true,
+            "fields": {
+              "contant_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "contant heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,strong"
+                }
+              },
+              "contant_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "contant description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import { RiRadioButtonFill } from "react-icons/ri";
-import SingleImageMask from "@/app/components/SingleImageMask";
+import SingleImageMask from "@/components/SingleImageMask";
 
 /**
  * Props for `Team`.
@@ -65,10 +65,10 @@ const Team: FC<TeamProps> = ({ slice }) => {
                 {item.person_image && (
                   <div className="mb-4 w-full max-w-[260px]">
                     <SingleImageMask
-                      imgWidth={200}
-                      imgHeight={200}
-                      imgUrl={item.person_image.url}
-                    />
+                  size={200}
+                  imgSrc={item.person_image.url}
+                  zoom={2}
+                />
                   </div>
                 )}
 

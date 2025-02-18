@@ -63,6 +63,20 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "card_sub_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Card Sub heading",
+                  "placeholder": ""
+                }
+              },
+              "card_label": {
+                "type": "Text",
+                "config": {
+                  "label": "card label",
+                  "placeholder": ""
+                }
               }
             }
           }

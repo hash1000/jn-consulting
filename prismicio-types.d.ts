@@ -4,6 +4,97 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AutomotiveDocumentDataSlicesSlice =
+  | AutomotiveContantSlice
+  | AutomotiveServicesSlice
+  | HeroSlice
+  | TopNavbarSlice;
+
+/**
+ * Content for Automotive documents
+ */
+interface AutomotiveDocumentData {
+  /**
+   * contant heading field in *Automotive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive.contant_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contant_heading: prismic.RichTextField;
+
+  /**
+   * contant field in *Automotive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive.contant
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contant: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Automotive*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AutomotiveDocumentDataSlicesSlice> /**
+   * Meta Title field in *Automotive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: automotive.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Automotive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: automotive.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Automotive*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Automotive document from Prismic
+ *
+ * - **API ID**: `automotive`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AutomotiveDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AutomotiveDocumentData>,
+    "automotive",
+    Lang
+  >;
+
 /**
  * Item in *dropdown → dropdown*
  */
@@ -131,6 +222,207 @@ export type HomepageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<HomepageDocumentData>,
     "homepage",
+    Lang
+  >;
+
+type IndustrialengineeringDocumentDataSlicesSlice =
+  | AutomotiveServicesSlice
+  | HeroSlice;
+
+/**
+ * Content for IndustrialEngineering documents
+ */
+interface IndustrialengineeringDocumentData {
+  /**
+   * Slice Zone field in *IndustrialEngineering*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industrialengineering.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<IndustrialengineeringDocumentDataSlicesSlice> /**
+   * Meta Title field in *IndustrialEngineering*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: industrialengineering.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *IndustrialEngineering*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: industrialengineering.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *IndustrialEngineering*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industrialengineering.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * IndustrialEngineering document from Prismic
+ *
+ * - **API ID**: `industrialengineering`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type IndustrialengineeringDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<IndustrialengineeringDocumentData>,
+    "industrialengineering",
+    Lang
+  >;
+
+type ItsoftwaresolutionsDocumentDataSlicesSlice =
+  | AutomotiveServicesSlice
+  | HeroSlice;
+
+/**
+ * Content for ItSoftwareSolutions documents
+ */
+interface ItsoftwaresolutionsDocumentData {
+  /**
+   * Slice Zone field in *ItSoftwareSolutions*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: itsoftwaresolutions.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ItsoftwaresolutionsDocumentDataSlicesSlice> /**
+   * Meta Title field in *ItSoftwareSolutions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: itsoftwaresolutions.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *ItSoftwareSolutions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: itsoftwaresolutions.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *ItSoftwareSolutions*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: itsoftwaresolutions.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * ItSoftwareSolutions document from Prismic
+ *
+ * - **API ID**: `itsoftwaresolutions`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ItsoftwaresolutionsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ItsoftwaresolutionsDocumentData>,
+    "itsoftwaresolutions",
+    Lang
+  >;
+
+type ManagementsupportDocumentDataSlicesSlice =
+  | AutomotiveServicesSlice
+  | HeroSlice;
+
+/**
+ * Content for ManagementSupport documents
+ */
+interface ManagementsupportDocumentData {
+  /**
+   * Slice Zone field in *ManagementSupport*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: managementsupport.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ManagementsupportDocumentDataSlicesSlice> /**
+   * Meta Title field in *ManagementSupport*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: managementsupport.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *ManagementSupport*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: managementsupport.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *ManagementSupport*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: managementsupport.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * ManagementSupport document from Prismic
+ *
+ * - **API ID**: `managementsupport`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ManagementsupportDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ManagementsupportDocumentData>,
+    "managementsupport",
     Lang
   >;
 
@@ -296,9 +588,290 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AutomotiveDocument
   | GropdownDocument
   | HomepageDocument
+  | IndustrialengineeringDocument
+  | ItsoftwaresolutionsDocument
+  | ManagementsupportDocument
   | SettingsDocument;
+
+/**
+ * Item in *AutomotiveContant → Default → Primary → hexa image*
+ */
+export interface AutomotiveContantSliceDefaultPrimaryHexaItem {
+  /**
+   * image field in *AutomotiveContant → Default → Primary → hexa image*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.hexa[].hexa_image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hexa_image_3: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *AutomotiveContant → Default → Primary → contant*
+ */
+export interface AutomotiveContantSliceDefaultPrimaryContantItem {
+  /**
+   * contant heading field in *AutomotiveContant → Default → Primary → contant*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.contant[].contant_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contant_heading: prismic.RichTextField;
+
+  /**
+   * contant description field in *AutomotiveContant → Default → Primary → contant*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.contant[].contant_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contant_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *AutomotiveContant → Default → Primary*
+ */
+export interface AutomotiveContantSliceDefaultPrimary {
+  /**
+   * main heading field in *AutomotiveContant → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * hexa image field in *AutomotiveContant → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.hexa[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  hexa: prismic.GroupField<
+    Simplify<AutomotiveContantSliceDefaultPrimaryHexaItem>
+  >;
+
+  /**
+   * contant field in *AutomotiveContant → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_contant.default.primary.contant[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  contant: prismic.GroupField<
+    Simplify<AutomotiveContantSliceDefaultPrimaryContantItem>
+  >;
+}
+
+/**
+ * Default variation for AutomotiveContant Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AutomotiveContantSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AutomotiveContantSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AutomotiveContant*
+ */
+type AutomotiveContantSliceVariation = AutomotiveContantSliceDefault;
+
+/**
+ * AutomotiveContant Shared Slice
+ *
+ * - **API ID**: `automotive_contant`
+ * - **Description**: AutomotiveContant
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AutomotiveContantSlice = prismic.SharedSlice<
+  "automotive_contant",
+  AutomotiveContantSliceVariation
+>;
+
+/**
+ * Item in *PageServices → Default → Primary → card*
+ */
+export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
+  /**
+   * card image field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>;
+
+  /**
+   * card heading field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_heading: prismic.RichTextField;
+
+  /**
+   * card sub heading field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_sub_heading: prismic.RichTextField;
+
+  /**
+   * card popup detail field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_popup_detail
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_popup_detail: prismic.RichTextField;
+
+  /**
+   * card popup heading field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_popup_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_popup_heading: prismic.RichTextField;
+
+  /**
+   * card popup link field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_popup_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  card_popup_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * card popup background field in *PageServices → Default → Primary → card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[].card_popup_background
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_popup_background: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *PageServices → Default → Primary*
+ */
+export interface AutomotiveServicesSliceDefaultPrimary {
+  /**
+   * lable field in *PageServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.lable
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  lable: prismic.RichTextField;
+
+  /**
+   * content field in *PageServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * card field in *PageServices → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.card[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card: prismic.GroupField<
+    Simplify<AutomotiveServicesSliceDefaultPrimaryCardItem>
+  >;
+
+  /**
+   * Backgroung Image field in *PageServices → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.backgroung_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  backgroung_image: prismic.ImageField<never>;
+
+  /**
+   * span lable field in *PageServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: automotive_services.default.primary.span_lable
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  span_lable: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for PageServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AutomotiveServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AutomotiveServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PageServices*
+ */
+type AutomotiveServicesSliceVariation = AutomotiveServicesSliceDefault;
+
+/**
+ * PageServices Shared Slice
+ *
+ * - **API ID**: `automotive_services`
+ * - **Description**: AutomotiveServices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AutomotiveServicesSlice = prismic.SharedSlice<
+  "automotive_services",
+  AutomotiveServicesSliceVariation
+>;
 
 /**
  * Item in *CooperateLink → Default → Primary → Cooperate links*
@@ -462,16 +1035,6 @@ export interface HeroSliceDefaultPrimary {
   backgroung_image: prismic.ImageField<never>;
 
   /**
-   * Image field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Sub Headeing field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -500,6 +1063,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   hexa_grid: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryHexaGridItem>>;
+
+  /**
+   * Header Image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.header_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  header_image: prismic.ImageField<never>;
 }
 
 /**
@@ -1184,6 +1757,26 @@ export interface VacenciesSliceDefaultPrimaryVacencyCardItem {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Card Sub heading field in *Vacencies → Default → Primary → vacency card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vacencies.default.primary.vacency_card[].card_sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_sub_heading: prismic.KeyTextField;
+
+  /**
+   * card label field in *Vacencies → Default → Primary → vacency card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vacencies.default.primary.vacency_card[].card_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_label: prismic.KeyTextField;
 }
 
 /**
@@ -1284,18 +1877,41 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AutomotiveDocument,
+      AutomotiveDocumentData,
+      AutomotiveDocumentDataSlicesSlice,
       GropdownDocument,
       GropdownDocumentData,
       GropdownDocumentDataDropdownItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      IndustrialengineeringDocument,
+      IndustrialengineeringDocumentData,
+      IndustrialengineeringDocumentDataSlicesSlice,
+      ItsoftwaresolutionsDocument,
+      ItsoftwaresolutionsDocumentData,
+      ItsoftwaresolutionsDocumentDataSlicesSlice,
+      ManagementsupportDocument,
+      ManagementsupportDocumentData,
+      ManagementsupportDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataFooterLinkItem,
       SettingsDocumentDataFooterIconItem,
       SettingsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AutomotiveContantSlice,
+      AutomotiveContantSliceDefaultPrimaryHexaItem,
+      AutomotiveContantSliceDefaultPrimaryContantItem,
+      AutomotiveContantSliceDefaultPrimary,
+      AutomotiveContantSliceVariation,
+      AutomotiveContantSliceDefault,
+      AutomotiveServicesSlice,
+      AutomotiveServicesSliceDefaultPrimaryCardItem,
+      AutomotiveServicesSliceDefaultPrimary,
+      AutomotiveServicesSliceVariation,
+      AutomotiveServicesSliceDefault,
       CooperateLinkSlice,
       CooperateLinkSliceDefaultPrimaryCooperateLinksItem,
       CooperateLinkSliceDefaultPrimary,

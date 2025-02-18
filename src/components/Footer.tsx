@@ -17,9 +17,10 @@ const iconComponents: Record<string, IconType> = {
 export default async function Footer() {
   const client = createClient();
   const data = await client.getSingle("settings");
-
+  
   return (
-    <div className="flex justify-between items-center max-w-[80%] mx-auto">
+    <div className="flex justify-between items-center max-w-[80%] mx-auto "
+    >
       <div
         className="py-5"
         data-aos="fade-right"
@@ -27,7 +28,7 @@ export default async function Footer() {
         data-aos-offset="100"
       >
         <Image
-          src={data?.data?.logo?.url ?? "/fallback-image.jpg"}
+          src={data?.data?.footer_logo?.url ?? "/fallback-image.jpg"}
           alt="logo"
           width={168}
           height={83}
@@ -35,15 +36,14 @@ export default async function Footer() {
       </div>
 
       <div
-        data-aos="fade-right"
-        className="flex gap-2"
+        className="flex gap-2 relative"
         style={{opacity:100}}
       >
         {data?.data?.footer_link?.length > 0 ? (
           data.data.footer_link.map((item: any, index: number) => (
             <div key={index} className="flex items-center">
               <PrismicNextLink
-                href={item.link?.url ?? "#"}
+                href={item.link ?? "#"}
                 className="text-white"
               >
                 {item.lable}

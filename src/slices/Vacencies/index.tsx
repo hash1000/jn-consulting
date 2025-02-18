@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
+import { montserrat } from "@/app/font";
 
 /**
  * Props for `Vacencies`.
@@ -58,14 +59,14 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
           {slice.primary.vacency_card.map((item, index) => (
             <div
               key={index}
-              className=" p-5 rounded-lg shadow-lg bg-white text-black flex flex-col items-center text-center"
+              className="rounded-lg pt-1 pb-5 px-2 shadow-lg bg-white text-black flex flex-col justify-center items-center text-center max-w-[270px]"
               style={{
                 background:
                   "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
               }}
             >
               {item.card_image && (
-                <div className="mb-4 w-full max-w-[270px]">
+                <div className="mb-4 flex justify-center">
                   <Image
                     src={item.card_image.url || ""}
                     alt="person image"
@@ -74,16 +75,19 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
                   />
                 </div>
               )}
+
               <PrismicRichText
                 field={item.card_heading}
                 components={{
                   heading1: ({ children }) => (
-                    <h1 className="text-4xl font-bold mb-2 text-[#6FDCD6]">
+                    <h1 className={`text-2xl font-bold mb-2 text-[#6FDCD6] ${montserrat.className}`}>
                       {children}
                     </h1>
                   ),
                 }}
               />
+             <h2 className={`text-2xl font-bold mb-2 text-[#6FDCD6] ${montserrat.className}`}>{item.card_sub_heading}</h2>
+             <h3 className={`text-2xl font-bold mb-2 text-[#6FDCD6]  ${montserrat.className}`}>{item.card_label}</h3>
               {item.card_button && (
                 <PrismicNextLink
                   field={item.card_button}

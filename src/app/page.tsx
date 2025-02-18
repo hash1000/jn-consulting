@@ -4,7 +4,7 @@ import { isFilled, asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import Tsparticles from "./components/Tsparticles";
+import Tsparticles from "../components/Tsparticles";
 
 
 export default async function Home() {

@@ -38,14 +38,6 @@
             "thumbnails": []
           }
         },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "sub_headeing": {
           "type": "StructuredText",
           "config": {
@@ -81,6 +73,14 @@
                 }
               }
             }
+          }
+        },
+        "header_image": {
+          "type": "Image",
+          "config": {
+            "label": "Header Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

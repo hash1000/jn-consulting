@@ -82,6 +82,22 @@
 										"text": "ice"
 									}
 								}
+							],
+							[
+								"card_sub_heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "free",
+									"type": "Text"
+								}
+							],
+							[
+								"card_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "dozen",
+									"type": "Text"
+								}
 							]
 						]
 					}

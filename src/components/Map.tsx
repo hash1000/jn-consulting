@@ -16,7 +16,7 @@ const MapComponent: React.FC<MapProps> = ({ latitude, longitude }) => {
   const center = { lat: latitude, lng: longitude };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg">
+    <LoadScript googleMapsApiKey="AIzaSyARMf5GLa2OSX5zdLDu-CZTso1ecu7JsLw">
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
         <Marker position={center} />
       </GoogleMap>

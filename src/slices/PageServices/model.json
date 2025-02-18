@@ -1,0 +1,124 @@
+{
+  "id": "automotive_services",
+  "type": "SharedSlice",
+  "name": "PageServices",
+  "description": "AutomotiveServices",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "lable": {
+          "type": "StructuredText",
+          "config": {
+            "label": "lable",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "card": {
+          "type": "Group",
+          "config": {
+            "label": "card",
+            "repeat": true,
+            "fields": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "label": "card image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "card_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "card heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,strong"
+                }
+              },
+              "card_sub_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "card sub heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,strong"
+                }
+              },
+              "card_popup_detail": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "card popup detail",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "card_popup_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "card popup heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,strong"
+                }
+              },
+              "card_popup_link": {
+                "type": "Link",
+                "config": {
+                  "label": "card popup link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "card_popup_background": {
+                "type": "Image",
+                "config": {
+                  "label": "card popup background",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "backgroung_image": {
+          "type": "Image",
+          "config": {
+            "label": "Backgroung Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "span_lable": {
+          "type": "Text",
+          "config": {
+            "label": "span lable",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
