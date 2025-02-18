@@ -24,6 +24,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   const handleMouseLeave = () => {
     setIsHovered(null);
   };
+  console.log("slice",slice.primary.card);
   return (
     <Bounded
       className="pt-[100px] mx-auto w-full max-w-[80%]"
@@ -67,7 +68,8 @@ const Services: FC<ServicesProps> = ({ slice }) => {
         >
           {slice.primary.card.map((item, index) => (
             <PrismicNextLink
-              key={index}
+            key={index}
+            href={item.card_link?.text || ""}
               field={item.card_link}
               className="p-6 rounded-lg shadow-lg text-white transition-colors duration-300 flex flex-col h-full"
               style={{

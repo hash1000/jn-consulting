@@ -29,9 +29,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "automotive_contant": {
-              "type": "SharedSlice"
-            },
             "automotive_services": {
               "type": "SharedSlice"
             },

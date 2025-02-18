@@ -38,7 +38,7 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
             style={{
               backgroundImage: `url(${selectedCard?.card_popup_background?.url || ""})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           >
             <div>

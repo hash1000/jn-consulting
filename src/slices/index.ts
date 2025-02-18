@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  automotive_contant: dynamic(() => import("./AutomotiveContant")),
   automotive_services: dynamic(() => import("./PageServices")),
   cooperate_link: dynamic(() => import("./CooperateLink")),
   hero: dynamic(() => import("./Hero")),

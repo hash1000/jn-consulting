@@ -5,7 +5,6 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AutomotiveDocumentDataSlicesSlice =
-  | AutomotiveContantSlice
   | AutomotiveServicesSlice
   | HeroSlice
   | TopNavbarSlice;
@@ -595,115 +594,6 @@ export type AllDocumentTypes =
   | ItsoftwaresolutionsDocument
   | ManagementsupportDocument
   | SettingsDocument;
-
-/**
- * Item in *AutomotiveContant → Default → Primary → hexa image*
- */
-export interface AutomotiveContantSliceDefaultPrimaryHexaItem {
-  /**
-   * image field in *AutomotiveContant → Default → Primary → hexa image*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.hexa[].hexa_image_3
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  hexa_image_3: prismic.ImageField<never>;
-}
-
-/**
- * Item in *AutomotiveContant → Default → Primary → contant*
- */
-export interface AutomotiveContantSliceDefaultPrimaryContantItem {
-  /**
-   * contant heading field in *AutomotiveContant → Default → Primary → contant*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.contant[].contant_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  contant_heading: prismic.RichTextField;
-
-  /**
-   * contant description field in *AutomotiveContant → Default → Primary → contant*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.contant[].contant_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  contant_description: prismic.RichTextField;
-}
-
-/**
- * Primary content in *AutomotiveContant → Default → Primary*
- */
-export interface AutomotiveContantSliceDefaultPrimary {
-  /**
-   * main heading field in *AutomotiveContant → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.main_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  main_heading: prismic.RichTextField;
-
-  /**
-   * hexa image field in *AutomotiveContant → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.hexa[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  hexa: prismic.GroupField<
-    Simplify<AutomotiveContantSliceDefaultPrimaryHexaItem>
-  >;
-
-  /**
-   * contant field in *AutomotiveContant → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_contant.default.primary.contant[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  contant: prismic.GroupField<
-    Simplify<AutomotiveContantSliceDefaultPrimaryContantItem>
-  >;
-}
-
-/**
- * Default variation for AutomotiveContant Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type AutomotiveContantSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<AutomotiveContantSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *AutomotiveContant*
- */
-type AutomotiveContantSliceVariation = AutomotiveContantSliceDefault;
-
-/**
- * AutomotiveContant Shared Slice
- *
- * - **API ID**: `automotive_contant`
- * - **Description**: AutomotiveContant
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type AutomotiveContantSlice = prismic.SharedSlice<
-  "automotive_contant",
-  AutomotiveContantSliceVariation
->;
 
 /**
  * Item in *PageServices → Default → Primary → card*
@@ -1901,12 +1791,6 @@ declare module "@prismicio/client" {
       SettingsDocumentDataFooterIconItem,
       SettingsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      AutomotiveContantSlice,
-      AutomotiveContantSliceDefaultPrimaryHexaItem,
-      AutomotiveContantSliceDefaultPrimaryContantItem,
-      AutomotiveContantSliceDefaultPrimary,
-      AutomotiveContantSliceVariation,
-      AutomotiveContantSliceDefault,
       AutomotiveServicesSlice,
       AutomotiveServicesSliceDefaultPrimaryCardItem,
       AutomotiveServicesSliceDefaultPrimary,
