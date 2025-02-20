@@ -24,10 +24,10 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   const handleMouseLeave = () => {
     setIsHovered(null);
   };
-  console.log("slice",slice.primary.card);
   return (
     <Bounded
-      className="pt-[100px] mx-auto w-full max-w-[1440px]"
+      className="pt-[100px] mx-auto w-full 
+      "
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
@@ -61,7 +61,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
 
         {/* Render the cards */}
         <div
-          className="grid grid-cols-1 md:grid-cols-4 gap-4 place-items-center "
+          className="grid grid-cols-1 md:grid-cols-4 gap-4 place-items-center max-w-[1370px] mx-auto"
           data-aos="fade-left"
           data-aos-delay="50"
           data-aos-offset="200"

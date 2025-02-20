@@ -6,7 +6,7 @@
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "PageServices",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -80,10 +80,10 @@
                   "multi": "heading1,strong"
                 }
               },
-              "card_popup_link": {
+              "card_link": {
                 "type": "Link",
                 "config": {
-                  "label": "card popup link",
+                  "label": "card link",
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": true,
@@ -98,14 +98,23 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "popup": {
+                "type": "Boolean",
+                "config": {
+                  "label": "popup",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
               }
             }
           }
         },
-        "backgroung_image": {
+        "background_image": {
           "type": "Image",
           "config": {
-            "label": "Backgroung Image",
+            "label": "Background Image",
             "constraint": {},
             "thumbnails": []
           }
@@ -115,6 +124,170 @@
           "config": {
             "label": "span lable",
             "placeholder": ""
+          }
+        },
+        "cae_card_service": {
+          "type": "Group",
+          "config": {
+            "label": "cae card service",
+            "repeat": true,
+            "fields": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "label": "card image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "card_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "card heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,strong"
+                }
+              }
+            }
+          }
+        },
+        "chemical_engineering": {
+          "type": "Group",
+          "config": {
+            "label": "chemical engineering",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "dynamics": {
+          "type": "Group",
+          "config": {
+            "label": "Dynamics",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "nvh": {
+          "type": "Group",
+          "config": {
+            "label": "NVH",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "strenth": {
+          "type": "Group",
+          "config": {
+            "label": "Strenth",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "kinematics": {
+          "type": "Group",
+          "config": {
+            "label": "Kinematics",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "aero_and_thermal_analysis": {
+          "type": "Group",
+          "config": {
+            "label": "Aero and thermal analysis",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "optimization": {
+          "type": "Group",
+          "config": {
+            "label": "Optimization",
+            "repeat": true,
+            "fields": {
+              "lable": {
+                "type": "Text",
+                "config": {
+                  "label": "lable",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "cae_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "cae content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong"
+          }
+        },
+        "chemical_engineering_contant": {
+          "type": "StructuredText",
+          "config": {
+            "label": "chemical engineering contant",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong"
+          }
+        },
+        "contant_background_image": {
+          "type": "Image",
+          "config": {
+            "label": "contant background image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

@@ -19,7 +19,7 @@ export default async function Footer() {
   const data = await client.getSingle("settings");
   
   return (
-    <div className="flex justify-between items-center max-w-[80%] mx-auto "
+    <div className="flex justify-between items-center max-w-[80%] mx-auto"
     >
       <div
         className="py-5"

@@ -4,7 +4,9 @@ import dynamic from "next/dynamic";
 
 export const components = {
   automotive_services: dynamic(() => import("./PageServices")),
+  cae_service: dynamic(() => import("./CaeService")),
   cooperate_link: dynamic(() => import("./CooperateLink")),
+  engineering_service: dynamic(() => import("./CadService")),
   hero: dynamic(() => import("./Hero")),
   location: dynamic(() => import("./Location")),
   partners: dynamic(() => import("./Partners")),

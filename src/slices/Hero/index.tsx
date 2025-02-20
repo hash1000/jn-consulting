@@ -82,62 +82,64 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           />
 
           {/* Button */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-offset="100"
-            className="mt-5"
-          >
-            <PrismicNextLink
-              field={slice.primary.button}
-              className="text-[#214955] bg-[#6FDCD6] py-3 px-5 rounded-md"
-            />
-          </div>
+          {slice.primary.button?.text && (
+            <div
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-offset="100"
+              className="mt-5"
+            >
+              <PrismicNextLink
+                field={slice.primary.button}
+                className="text-[#214955] bg-[#6FDCD6] py-3 px-5 rounded-md"
+              />
+            </div>
+          )}
         </div>
 
         <div className="flex-1 h-full relative max-w-[672px] min-w-[672px] mx-auto">
-        {slice.primary.hexa_grid?.length > 0 ? (
-                slice.primary.hexa_grid.map((item, index) => {
-                  let positionClass = "";
-                  let size = 0;
+          {slice.primary.hexa_grid?.length > 0 ? (
+            slice.primary.hexa_grid.map((item, index) => {
+              let positionClass = "";
+              let size = 0;
 
-                  // Setting positions and sizes dynamically
-                  if (index === 0) {
-                    positionClass = "absolute left-0";
-                    size = 250;
-                  } else if (index === 1) {
-                    positionClass = "absolute right-[10px]";
-                    size = 250;
-                  } else if (index === 2) {
-                    positionClass = "absolute -top-[93px] left-[30%]";
-                    size = 220;
-                  } else if (index === 3) {
-                    positionClass = "absolute top-[122px] left-[30%]";
-                    size = 220;
-                  }
+              // Setting positions and sizes dynamically
+              if (index === 0) {
+                positionClass = "absolute left-0";
+                size = 250;
+              } else if (index === 1) {
+                positionClass = "absolute right-[10px]";
+                size = 250;
+              } else if (index === 2) {
+                positionClass = "absolute -top-[93px] left-[30%]";
+                size = 220;
+              } else if (index === 3) {
+                positionClass = "absolute top-[122px] left-[30%]";
+                size = 220;
+              }
 
-                  return (
-                    <div
-                      key={index}
-                      className={`w-full max-w-[260px] ${positionClass}`}
-                    >
-                      <SingleImageMask
-                        size={size}
-                        imgSrc={item.hexa_image?.url || ""}
-                        zoom={2}
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="flex items-center justify-center">
+              return (
+                <div
+                  key={index}
+                  className={`w-full max-w-[260px] ${positionClass}`}
+                >
                   <SingleImageMask
-                    size={400}
-                    imgSrc={slice.primary.header_image?.url || ""}
+                    size={size}
+                    imgSrc={item.hexa_image?.url || ""}
                     zoom={2}
                   />
                 </div>
-              )}
+              );
+            })
+          ) : (
+            <div className="flex items-center justify-center">
+              <SingleImageMask
+                size={400}
+                imgSrc={slice.primary.header_image?.url || ""}
+                zoom={2}
+              />
+            </div>
+          )}
         </div>
       </div>
     </Bounded>
