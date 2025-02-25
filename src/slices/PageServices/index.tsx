@@ -21,7 +21,16 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
   const [showModal, setShowModal] = useState(false);
   const [showContant, setShowContant] = useState<number | null>(null);
   const [link, setLink] = useState<string | null>(null);
+  const [isHovered, setIsHovered] = useState<number | null>(null);
 
+  const handleMouseEnter = (index: number) => {
+    console.log("index", index);
+    setIsHovered(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(null);
+  };
   const normalizeString = (str: string) => str.toLowerCase().replace(/_/g, " ");
 
   return (
@@ -118,7 +127,7 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
             ? " grid grid-cols-1 md:grid-cols-3"
             : "md:grid-cols-4"
     } 
-    gap-6 place-items-center max-w-[1370px] mx-auto`}
+    gap-6 place-items-center max-w-[1140px] mx-auto`}
             data-aos="fade-left"
             data-aos-delay="50"
             data-aos-offset="200"
@@ -143,7 +152,7 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                     setShowContant(index);
                   }
                 }}
-                className="rounded-lg shadow-lg hover:cursor-pointer text-white transition-colors duration-300 flex flex-col h-full w-[435px] max-h-[310px]"
+                className="rounded-lg shadow-lg hover:cursor-pointer text-white transition-colors duration-300 flex flex-col h-full w-[365px] max-h-[310px]"
                 style={{
                   background:
                     "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
@@ -154,14 +163,14 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                   <div className="flex flex-col h-full w-full py-4">
                     {/* Card Image */}
                     {item.card_image?.url ? (
-                      <div className="mb-4 mx-auto max-w-[435px] h-[180px]">
+                      <div className="mb-4 mx-auto max-w-[365px] h-[180px]">
                         <Image
                           src={item.card_image.url}
                           alt={item.card_image.alt || "Card Image"}
                           width={180}
                           height={180}
                           layout="intrinsic"
-                          className="object-cover rounded-md max-w-[435px] h-[180px]"
+                          className="object-cover rounded-md max-w-[365px] h-[180px]"
                         />
                       </div>
                     ) : (
@@ -173,15 +182,23 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                     )}
 
                     {/* Card Text */}
-                    <div className="flex-grow text-center">
+                    <div
+                      className="flex-grow text-center"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       {item.card_heading && (
-                        <div className="text-xl font-bold mb-2 hover:text-[#51B0AB]">
+                        <div
+                          className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}
+                        >
                           <PrismicRichText field={item.card_heading} />
                         </div>
                       )}
 
                       {item.card_sub_heading && (
-                        <div className="text-xl font-semibold mb-2 hover:text-[#51B0AB]">
+                        <div
+                          className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}
+                        >
                           <PrismicRichText field={item.card_sub_heading} />
                         </div>
                       )}
@@ -195,13 +212,13 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                       className="py-4"
                     >
                       {item.card_image?.url ? (
-                        <div className="mb-4 mx-auto max-w-[435px] h-[180px] flex justify-center">
+                        <div className="mb-4 mx-auto max-w-[365px] h-[180px] flex justify-center">
                           <Image
                             src={item.card_image.url}
                             alt={item.card_image.alt || "Card Image"}
                             width={180}
                             height={180}
-                            className="object-cover rounded-md max-w-[435px] h-[180px]"
+                            className="object-cover rounded-md max-w-[365px] h-[180px]"
                           />
                         </div>
                       ) : (
@@ -213,15 +230,19 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                       )}
 
                       {/* Card Text */}
-                      <div className="flex-grow text-center">
+                      <div className="flex-grow text-center"
+                      
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={handleMouseLeave}
+                     >
                         {item.card_heading && (
-                          <div className="text-xl font-bold mb-2 hover:text-[#51B0AB]">
+                          <div className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
                             <PrismicRichText field={item.card_heading} />
                           </div>
                         )}
 
                         {item.card_sub_heading && (
-                          <div className="text-xl font-semibold mb-2 hover:text-[#51B0AB]">
+                          <div className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
                             <PrismicRichText field={item.card_sub_heading} />
                           </div>
                         )}
@@ -232,14 +253,14 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                   <div className="flex flex-col h-full w-full py-4">
                     {/* Card Image */}
                     {item.card_image?.url ? (
-                      <div className="mb-4 mx-auto max-w-[435px] h-[180px]">
+                      <div className="mb-4 mx-auto max-w-[365px] h-[180px]">
                         <Image
                           src={item.card_image.url}
                           alt={item.card_image.alt || "Card Image"}
                           width={180}
                           height={180}
                           layout="intrinsic"
-                          className="object-cover rounded-md max-w-[435px] h-[180px]"
+                          className="object-cover rounded-md max-w-[365px] h-[180px]"
                         />
                       </div>
                     ) : (
@@ -251,15 +272,18 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                     )}
 
                     {/* Card Text */}
-                    <div className="flex-grow text-center">
+                    <div className="flex-grow text-center"
+                    
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}>
                       {item.card_heading && (
-                        <div className="text-xl font-bold mb-2 hover:text-[#51B0AB]">
+                        <div className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
                           <PrismicRichText field={item.card_heading} />
                         </div>
                       )}
 
                       {item.card_sub_heading && (
-                        <div className="text-xl font-semibold mb-2 hover:text-[#51B0AB]">
+                        <div className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}}`}>
                           <PrismicRichText field={item.card_sub_heading} />
                         </div>
                       )}
@@ -273,92 +297,178 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
       </Bounded>
       {showContant === 0 ? (
         <Bounded
-        className="py-[100px] mx-auto w-full"
-        backgroundImage={slice.primary.contant_background_image?.url || ""}
-      >
-        <div className="flex flex-col items-center px-4">
-          {/* Title */}
-          <div className="text-2xl font-bold text-[#5AB7B5] p-4 text-center">
-            <PrismicRichText field={slice.primary.cae_content} />
-          </div>
+          className="py-[100px] mx-auto w-full"
+          backgroundImage={slice.primary.contant_background_image?.url || ""}
+        >
+          <div className="flex flex-col items-center px-4">
+            {/* Title */}
+            <div className="text-2xl font-bold text-[#5AB7B5] p-4 text-center">
+              <PrismicRichText field={slice.primary.cae_content} />
+            </div>
 
-          {/* Cards Grid */}
-          <div
-            data-aos="fade-right"
-            data-aos-delay="50"
-            data-aos-offset="200"
-            className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  place-items-center mx-auto max-w-[1440px] py-12"
-          >
-            {Array.isArray(slice.primary.cae_card_service) &&
-              slice.primary.cae_card_service.map((item) => {
-                const cardHeadingKey = asText(item.card_heading);
-                return (
-                  <div
-                    key={cardHeadingKey}
-                    className=" rounded-lg shadow-lg p-6 w-full max-w-[400px] flex flex-col items-center"
-                    style={{
-                      background:
-                        "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
-                    }}
-                  >
-                    {/* Image */}
-                    <div className="mb-4 w-full h-[180px] flex justify-center">
-                      <Image
-                        src={item.card_image.url || ""}
-                        alt={item.card_image.alt || "Card Image"}
-                        width={180}
-                        height={150}
-                        className="object-cover rounded-md  h-full shadow-lg"
-                      />
-                    </div>
-                    <PrismicRichText
-                      field={item.card_heading}
-                      components={{
-                        // Use a component from another file.
-                        heading1: ({ children }) => (
-                          <h1 className="text-[#5AB7B5] font-bold text-2xl">
-                            {children}
-                          </h1>
-                        ),
-                        // Use an HTML element with class names.
+            {/* Cards Grid */}
+            <div
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-offset="200"
+              className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  place-items-center mx-auto max-w-[1440px] py-12"
+            >
+              {Array.isArray(slice.primary.cae_card_service) &&
+                slice.primary.cae_card_service.map((item) => {
+                  const cardHeadingKey = asText(item.card_heading);
+                  return (
+                    <div
+                      key={cardHeadingKey}
+                      className=" rounded-lg shadow-lg p-6 w-full max-w-[365px] flex flex-col items-center"
+                      style={{
+                        background:
+                          "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
                       }}
-                    />
-                    {/* Content */}
-                    <div className="flex flex-col flex-grow text-white w-full">
-                      <div className="overflow-y-auto min-h-[200px] p-3">
-                        {Object.entries(slice.primary).map(
-                          ([key, value], i) => {
-                            if (
-                              normalizeString(key) ===
-                              normalizeString(cardHeadingKey)
-                            ) {
-                              return (
-                                <ul
-                                  key={i}
-                                  className="list-disc list-inside space-y-2 text-gray-300"
-                                >
-                                  {Array.isArray(value) &&
-                                    value.map((subItem, subIndex) => (
-                                      <li key={subIndex}>
-                                        {subItem?.label || subItem?.lable || ""}
-                                      </li>
-                                    ))}
-                                </ul>
-                              );
+                    >
+                      {/* Image */}
+                      <div className="mb-4 w-full h-[180px] flex justify-center">
+                        <Image
+                          src={item.card_image.url || ""}
+                          alt={item.card_image.alt || "Card Image"}
+                          width={180}
+                          height={150}
+                          className="object-cover rounded-md  h-full shadow-lg"
+                        />
+                      </div>
+                      <PrismicRichText
+                        field={item.card_heading}
+                        components={{
+                          // Use a component from another file.
+                          heading1: ({ children }) => (
+                            <h1 className="text-[#5AB7B5] font-bold text-2xl">
+                              {children}
+                            </h1>
+                          ),
+                          // Use an HTML element with class names.
+                        }}
+                      />
+                      {/* Content */}
+                      <div className="flex flex-col flex-grow text-white w-full">
+                        <div className="overflow-y-auto min-h-[200px] p-3">
+                          {Object.entries(slice.primary).map(
+                            ([key, value], i) => {
+                              if (
+                                normalizeString(key) ===
+                                normalizeString(cardHeadingKey)
+                              ) {
+                                return (
+                                  <ul
+                                    key={i}
+                                    className="list-disc list-inside space-y-2 text-gray-300"
+                                  >
+                                    {Array.isArray(value) &&
+                                      value.map((subItem, subIndex) => (
+                                        <li key={subIndex}>
+                                          {subItem?.label ||
+                                            subItem?.lable ||
+                                            ""}
+                                        </li>
+                                      ))}
+                                  </ul>
+                                );
+                              }
                             }
-                          }
-                        )}
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
-        </div>
-      </Bounded>
-        
+        </Bounded>
       ) : showContant === 1 ? (
-        <h1>Comming soon</h1>
+        <Bounded
+          className="py-[100px] mx-auto w-full"
+          backgroundImage={slice.primary.contant_background_image?.url || ""}
+        >
+          <div className="flex flex-col items-center px-4">
+            {/* Title */}
+            <div className="text-2xl font-bold text-[#5AB7B5] p-4 text-center">
+              <PrismicRichText field={slice.primary.cae_content} />
+            </div>
+
+            {/* Cards Grid */}
+            <div
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-offset="200"
+              className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  place-items-center mx-auto max-w-[1440px] py-12"
+            >
+              {Array.isArray(slice.primary.cae_card_service) &&
+                slice.primary.cae_card_service.map((item) => {
+                  const cardHeadingKey = asText(item.card_heading);
+                  return (
+                    <div
+                      key={cardHeadingKey}
+                      className=" rounded-lg shadow-lg p-6 w-full max-w-[365px] flex flex-col items-center"
+                      style={{
+                        background:
+                          "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
+                      }}
+                    >
+                      {/* Image */}
+                      <div className="mb-4 w-full h-[180px] flex justify-center">
+                        <Image
+                          src={item.card_image.url || ""}
+                          alt={item.card_image.alt || "Card Image"}
+                          width={180}
+                          height={150}
+                          className="object-cover rounded-md  h-full shadow-lg"
+                        />
+                      </div>
+                      <PrismicRichText
+                        field={item.card_heading}
+                        components={{
+                          // Use a component from another file.
+                          heading1: ({ children }) => (
+                            <h1 className="text-[#5AB7B5] font-bold text-2xl">
+                              {children}
+                            </h1>
+                          ),
+                          // Use an HTML element with class names.
+                        }}
+                      />
+                      {/* Content */}
+                      <div className="flex flex-col flex-grow text-white w-full">
+                        <div className="overflow-y-auto min-h-[200px] p-3">
+                          {Object.entries(slice.primary).map(
+                            ([key, value], i) => {
+                              if (
+                                normalizeString(key) ===
+                                normalizeString(cardHeadingKey)
+                              ) {
+                                return (
+                                  <ul
+                                    key={i}
+                                    className="list-disc list-inside space-y-2 text-gray-300"
+                                  >
+                                    {Array.isArray(value) &&
+                                      value.map((subItem, subIndex) => (
+                                        <li key={subIndex}>
+                                          {subItem?.label ||
+                                            subItem?.lable ||
+                                            ""}
+                                        </li>
+                                      ))}
+                                  </ul>
+                                );
+                              }
+                            }
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </Bounded>
       ) : null}
 
       <div className="border-b-4 border-white"></div>

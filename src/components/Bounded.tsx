@@ -8,6 +8,7 @@ type BoundedProps = {
   backgroundImage?: string;
   width?: string | number;
   height?: string | number;
+  id?: string;
 };
 
 export default function Bounded({
@@ -17,6 +18,7 @@ export default function Bounded({
   backgroundImage,
   width = "100%",
   height = "auto",
+  id="",
   ...restProp
 }: BoundedProps) {
   const style: React.CSSProperties = {
@@ -26,10 +28,10 @@ export default function Bounded({
     backgroundRepeat: "no-repeat",
     width,
     height,
-  };
+  };  
 
   return (
-    <Comp className={clsx("md:py-14", className)} style={style} {...restProp}>
+    <Comp id={id} className={clsx("md:py-14", className)} style={style} {...restProp}>
       {children}
     </Comp>
   );

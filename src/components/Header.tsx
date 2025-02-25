@@ -11,16 +11,19 @@ export default async function Header() {
 
   return (
     <div className="relative">
-      <div className="flex justify-between items-center absolute top-0 w-full z-10">
+      <div className="flex flex-col lg:flex-row justify-between items-center absolute top-0 w-full z-10">
         {/* Logo */}
+        <div className="self-start">
         <Image
           data-aos="fade-down"
           data-aos-offset="200"
           src={data.data.logo.url ?? "/fallback-image.jpg"}
           alt={data.data.logo.alt ?? "Logo"}
-          width={183}
-          height={98}
+          width={275}
+          height={150}
         />
+        </div>
+        
 
         {/* Navbar */}
         <div
@@ -34,8 +37,8 @@ export default async function Header() {
                 {/* Main Menu Item */}
                 <PrismicNextLink
                   field={item.link}
-                  href={item.link?.text ?? "#"}
-                  className={`${montserrat.className} flex items-center gap-1 uppercase font-bold hover:text-[#6FDCD6] hover:border-b-2 hover:border-[#6FDCD6]`}
+                  href={`/${item.link?.text}`}
+                  className={`${montserrat.className} flex items-center gap-1 uppercase font-[600] hover:text-[#6FDCD6] hover:border-b-2 hover:border-[#6FDCD6]`}
                 >
                   {item.lable}
                   {item.lable === "Services" &&

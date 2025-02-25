@@ -18,6 +18,7 @@ export type TeamProps = SliceComponentProps<Content.TeamSlice>;
 const Team: FC<TeamProps> = ({ slice }) => {
   return (
     <Bounded
+      id="team"
       className="pt-[100px] w-full px-0"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
@@ -57,7 +58,7 @@ const Team: FC<TeamProps> = ({ slice }) => {
             >
               {/* Card Image */}
               <div
-                className="flex gap-2 items-center"
+                className="flex flex-col lg:flex-row gap-2 items-center"
                 data-aos="fade-right"
                 data-aos-delay="50"
                 data-aos-offset="200"
@@ -66,7 +67,7 @@ const Team: FC<TeamProps> = ({ slice }) => {
                   <div className="mb-4 w-full max-w-[260px]">
                     <SingleImageMask
                   size={200}
-                  imgSrc={item.person_image.url}
+                  imgSrc={item.person_image.url || ""}
                   zoom={2}
                 />
                   </div>

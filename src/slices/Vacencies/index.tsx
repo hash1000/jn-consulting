@@ -17,7 +17,8 @@ export type VacenciesProps = SliceComponentProps<Content.VacenciesSlice>;
 const Vacencies: FC<VacenciesProps> = ({ slice }) => {
   return (
     <Bounded
-      className="pt-[100px] w-full max-w-[1370px] mx-auto"
+      id="career"
+      className="pt-[100px] w-full max-w-[1140px] mx-auto"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
@@ -28,9 +29,9 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
             field={slice.primary.heading}
             components={{
               heading1: ({ children }) => (
-                <h2 className="text-4xl font-bold mb-4 flex justify-center items-center text-uppercase">
+                <h2 className="text-4xl font-bold mb-4 flex justify-center items-center capitalize">
                   {children}
-                  <span className="text-primary ml-3 text-[#6FDCD6] text-uppercase">
+                  <span className="text-primary ml-3 text-[#6FDCD6] capitalize">
                     <PrismicRichText field={slice.primary.sub_headeing} />
                   </span>
                 </h2>
@@ -44,14 +45,14 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
           field={slice.primary.conatct}
           components={{
             paragraph: ({ children }) => (
-              <p className="tex-white mb-8">{children}</p>
+              <p className="tex-white mb-8 capitalize">{children}</p>
             ),
           }}
         />
 
         {/* Cards Section */}
         <div
-          className="grid grid-cols-1 md:grid-cols-4 w-full max-w-[80%] mx-auto  gap-4 place-items-center"
+          className="grid md:grid-cols-[repeat(2,minmax(300px,350px))] xl:grid-cols-4 justify-center w-full max-w-[1140px] mx-auto  gap-4 place-items-center"
           data-aos="fade-right"
           data-aos-delay="50"
           data-aos-offset="300"
@@ -59,7 +60,7 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
           {slice.primary.vacency_card.map((item, index) => (
             <div
               key={index}
-              className="rounded-lg pt-1 pb-5 px-2 shadow-lg bg-white text-black flex flex-col justify-center items-center text-center max-w-[270px]"
+              className="rounded-lg pt-1 pb-5 px-2 min-w-[17rem] shadow-lg bg-white text-black flex flex-col justify-center items-center text-center "
               style={{
                 background:
                   "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
@@ -80,14 +81,14 @@ const Vacencies: FC<VacenciesProps> = ({ slice }) => {
                 field={item.card_heading}
                 components={{
                   heading1: ({ children }) => (
-                    <h1 className={`text-2xl font-bold mb-2 text-[#6FDCD6] ${montserrat.className}`}>
+                    <h1 className={`text-2xl font-bold  text-[#6FDCD6] ${montserrat.className}`}>
                       {children}
                     </h1>
                   ),
                 }}
               />
-             <h2 className={`text-2xl font-bold mb-2 text-[#6FDCD6] ${montserrat.className}`}>{item.card_sub_heading}</h2>
-             <h3 className={`text-2xl font-bold mb-2 text-[#6FDCD6]  ${montserrat.className}`}>{item.card_label}</h3>
+             <h2 className={`text-2xl font-bold  text-[#6FDCD6] ${montserrat.className}`}>{item.card_sub_heading}</h2>
+             <h3 className={`text-2xl font-bold  text-[#6FDCD6]  ${montserrat.className}`}>{item.card_label}</h3>
               {item.card_button && (
                 <PrismicNextLink
                   field={item.card_button}

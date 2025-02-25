@@ -26,6 +26,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   };
   return (
     <Bounded
+    id="services"
       className="pt-[100px] mx-auto w-full 
       "
       data-slice-type={slice.slice_type}
@@ -61,7 +62,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
 
         {/* Render the cards */}
         <div
-          className="grid grid-cols-1 md:grid-cols-4 gap-4 place-items-center max-w-[1370px] mx-auto"
+          className="grid md:grid-cols-[repeat(2,minmax(300px,350px))] xl:grid-cols-4 justify-center gap-4 place-items-center max-w-[1140px] mx-auto"
           data-aos="fade-left"
           data-aos-delay="50"
           data-aos-offset="200"
@@ -71,7 +72,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
             key={index}
             href={item.card_link?.text || ""}
               field={item.card_link}
-              className="p-6 rounded-lg shadow-lg text-white transition-colors duration-300 flex flex-col h-full"
+              className="md:p-3 xl:p-6 rounded-lg shadow-lg text-white transition-colors duration-300 flex flex-col h-full"
               style={{
                 background: isHovered===index
                   ? "#51B0AB"
@@ -100,9 +101,8 @@ const Services: FC<ServicesProps> = ({ slice }) => {
                     <PrismicRichText field={item.card_heading} />
                   </div>
                 )}
-
                 {item.card_sub_heading && (
-                  <div className="text-2xl font-semibold mb-2">
+                  <div className="text-2xl font-bold mb-2">
                     <PrismicRichText field={item.card_sub_heading} />
                   </div>
                 )}

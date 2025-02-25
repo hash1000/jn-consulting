@@ -16,49 +16,47 @@ export type PartnersProps = SliceComponentProps<Content.PartnersSlice>;
 const Partners: FC<PartnersProps> = ({ slice }) => {
   return (
     <Bounded
+      id="partners"
       className="pt-[100px] w-full"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       <div className="text-center">
         {/* Heading and Subheading */}
-        <div
-        data-aos="fade-right"
-        data-aos-delay="50"
-        data-aos-offset="300"
-        >
-      <PrismicRichText
-          field={slice.primary.heading}
-          components={{
-            heading1: ({ children }) => (
-              <h2 className="text-4xl font-bold mb-4 flex justify-center items-center">
-                {children}
-                <span className="text-primary ml-3 text-[#6FDCD6]">
-                  <PrismicRichText field={slice.primary.sub_headeing} />
-                </span>
-              </h2>
-            ),
-          }}
-        />
+        <div data-aos="fade-right" data-aos-delay="50" data-aos-offset="300">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading1: ({ children }) => (
+                <h2 className="text-4xl font-bold mb-4 flex justify-center items-center">
+                  {children}
+                  <span className="text-primary ml-3 text-[#6FDCD6]">
+                    <PrismicRichText field={slice.primary.sub_headeing} />
+                  </span>
+                </h2>
+              ),
+            }}
+          />
         </div>
-  
 
         {/* Description */}
-        <PrismicRichText
-          field={slice.primary.contact}
-          components={{
-            paragraph: ({ children }) => (
-              <p className="tex-white mb-8">{children}</p>
-            ),
-          }}
-        />
+        <div data-aos="fade-left" data-aos-delay="50" data-aos-offset="300">
+          <PrismicRichText
+            field={slice.primary.contact}
+            components={{
+              paragraph: ({ children }) => (
+                <p className="tex-white mb-8">{children}</p>
+              ),
+            }}
+          />
+        </div>
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-[1440px] mx-auto"
-        
-        data-aos="fade-left"
-        data-aos-delay="50"
-        data-aos-offset="300"
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-[80%] xl:max-w-[1140px] mx-auto"
+          data-aos="fade-left"
+          data-aos-delay="50"
+          data-aos-offset="300"
         >
           {slice.primary.partners_card.map((item, index) => (
             <div

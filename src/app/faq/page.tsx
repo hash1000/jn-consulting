@@ -8,7 +8,8 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <div className="max-w-4xl mx-auto  py-[100px] h-screen">
+    <>
+    <div className="max-w-4xl mx-auto  pt-[200px] pb-[50px] h-screen">
       <h1 className="text-3xl font-bold mb-6">Frequently Asked Questions</h1>
       {faqData.map((faq, index) => (
         <div key={index} className="mb-4">
@@ -17,5 +18,8 @@ export default function FAQ() {
         </div>
       ))}
     </div>
+    
+    <div className="border-b-4 border-white"></div>
+    </>
   );
 }

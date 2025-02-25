@@ -14,11 +14,11 @@ export type CaeServiceProps = SliceComponentProps<Content.CaeServiceSlice>;
  * Component for "CaeService" and "CadService" Slices.
  */
 const CaeService: FC<CaeServiceProps> = ({ slice }) => {
-  console.log("cad slice", slice);
   const normalizeString = (str: string) => str.toLowerCase().replace(/_/g, " ");
 
   return (
-    <Bounded
+    <>
+ <Bounded
       className="pt-[100px] mx-auto w-full"
       backgroundImage={slice.primary.backgroung_image?.url || ""}
       data-slice-type={slice.slice_type}
@@ -40,14 +40,14 @@ const CaeService: FC<CaeServiceProps> = ({ slice }) => {
         data-aos="fade-right"
         data-aos-delay="50"
         data-aos-offset="200"
-        className="grid gap-6 grid-cols-4 place-items-center mx-auto max-w-[1440px] py-[100px]"
+        className="grid gap-6 grid-cols-4 place-items-center mx-auto max-w-[1140px] py-[100px]"
       >
         {slice.primary.card.map((item, index) => {
           const cardHeadingKey = asText(item.card_heading);
           return (
             <div
               key={index}
-              className="rounded-md flex flex-col h-full w-[354px]" // Use h-full for equal height
+              className="rounded-md flex flex-col h-full w-[270px]" // Use h-full for equal height
             >
               <div className="w-full h-[250px] relative">
                 <Image
@@ -94,7 +94,11 @@ const CaeService: FC<CaeServiceProps> = ({ slice }) => {
           );
         })}
       </div>
+      
+   
     </Bounded>
+    </>
+   
   );
 };
 

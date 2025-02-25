@@ -48,21 +48,18 @@ const Location: FC<LocationProps> = ({ slice }) => {
           </div>
 
           {/* Cards and Map Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[80%] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-[80%] mx-auto">
             {/* Location Cards */}
-            <div>
+            <div className="max-h-[480px] overflow-y-scroll overflow-x-hidden">
               {slice.primary.location_card.map((item, index) => {
-                // let delay = 0;
-                // if(index===0){
-                //   delay=50;
-                // }
+                console.log("${index+1}00",`${index+1}00`)
                 return (
                   <div
-                    // data-aos="fade-left"
-                    // data-aos-delay={`${index+1}00`}
+                    data-aos="fade-left"
+                    // data-aos-delay="100"
                     // data-aos-offset="500"
                     key={index}
-                    className="p-5 rounded-lg flex gap-4   mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
+                    className="p-5 rounded-lg flex gap-4  mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
                   >
                     <FaLocationDot color="#6FDCD6" />
                     <div>
