@@ -47,14 +47,14 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
           onRequestClose={() => setShowModal(false)}
         >
           <div
-            className="max-w-[900px] h-[600px] grid place-items-end p-6 rounded-md"
+            className="w-[900px] h-[600px] grid place-items-end p-6 rounded-md"
             style={{
               backgroundImage: `url(${selectedCard?.card_popup_background.url || ""})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
           >
-            <div>
+            <div className="w-full">
               {/* Render the label */}
               <PrismicRichText
                 field={selectedCard?.card_popup_heading}
@@ -319,20 +319,17 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                   return (
                     <div
                       key={cardHeadingKey}
-                      className=" rounded-lg shadow-lg p-6 w-full max-w-[365px] flex flex-col items-center"
-                      style={{
-                        background:
-                          "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
-                      }}
+                      className=" rounded-lg  w-full max-w-[365px] flex flex-col items-center"
+                      
                     >
                       {/* Image */}
                       <div className="mb-4 w-full h-[180px] flex justify-center">
                         <Image
                           src={item.card_image.url || ""}
                           alt={item.card_image.alt || "Card Image"}
-                          width={180}
+                          width={200}
                           height={150}
-                          className="object-cover rounded-md  h-full shadow-lg"
+                          className="object-cover"
                         />
                       </div>
                       <PrismicRichText
@@ -340,7 +337,7 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                         components={{
                           // Use a component from another file.
                           heading1: ({ children }) => (
-                            <h1 className="text-[#5AB7B5] font-bold text-2xl">
+                            <h1 className="text-[#5AB7B5] font-bold text-2xl w-full p-2">
                               {children}
                             </h1>
                           ),
@@ -348,7 +345,12 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                         }}
                       />
                       {/* Content */}
-                      <div className="flex flex-col flex-grow text-white w-full">
+                      <div className="flex flex-col flex-grow text-white w-full"
+                      style={{
+                        background:
+                          "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
+                      }}
+                      >
                         <div className="overflow-y-auto min-h-[200px] p-3">
                           {Object.entries(slice.primary).map(
                             ([key, value], i) => {

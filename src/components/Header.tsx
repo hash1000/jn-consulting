@@ -8,7 +8,7 @@ import { montserrat } from "../app/font";
 export default async function Header() {
   const client = createClient();
   const data = await client.getSingle("settings");
-
+  
   return (
     <div className="relative">
       <div className="flex flex-col lg:flex-row justify-between items-center absolute top-0 w-full z-10">

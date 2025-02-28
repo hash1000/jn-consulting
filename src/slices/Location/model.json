@@ -60,14 +60,20 @@
                   "label": "Place",
                   "placeholder": ""
                 }
+              },
+              "longitude_latitude": {
+                "type": "GeoPoint",
+                "config": {
+                  "label": "longitude latitude"
+                }
               }
             }
           }
         },
-        "location_map": {
+        "longitude_latitude": {
           "type": "GeoPoint",
           "config": {
-            "label": "location map"
+            "label": "longitude latitude"
           }
         }
       },

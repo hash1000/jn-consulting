@@ -1,4 +1,5 @@
-import { FC } from "react";
+"use client";
+import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
@@ -8,7 +9,14 @@ import Map from "@/components/Map";
 export type LocationProps = SliceComponentProps<Content.LocationSlice>;
 
 const Location: FC<LocationProps> = ({ slice }) => {
-  const { latitude, longitude } = slice.primary.location_map || {};
+  const [location, setLocation]= useState({
+    latitude: slice.primary.longitude_latitude.latitude,
+    longitude: slice.primary.longitude_latitude.longitude,
+  } );
+
+  function Location(location: any){
+    setLocation(location)
+  }
 
   return (
     <>
@@ -52,14 +60,12 @@ const Location: FC<LocationProps> = ({ slice }) => {
             {/* Location Cards */}
             <div className="max-h-[480px] overflow-y-scroll overflow-x-hidden">
               {slice.primary.location_card.map((item, index) => {
-                console.log("${index+1}00",`${index+1}00`)
                 return (
                   <div
                     data-aos="fade-left"
-                    // data-aos-delay="100"
-                    // data-aos-offset="500"
                     key={index}
-                    className="p-5 rounded-lg flex gap-4  mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6]"
+                    className="p-5 rounded-lg flex gap-4  mb-2 shadow-lg bg-[#2B465B] text-[#6FDCD6] items-center text-start border-l-4 border-[#6FDCD6] cursor-pointer"
+                    onClick={() => Location(item.longitude_latitude)}
                   >
                     <FaLocationDot color="#6FDCD6" />
                     <div>
@@ -97,8 +103,8 @@ const Location: FC<LocationProps> = ({ slice }) => {
                 Our Location
               </div>
               <div className="flex-grow">
-                {latitude && longitude ? (
-                  <Map latitude={latitude} longitude={longitude} />
+                {location.latitude && location.longitude ? (
+                  <Map latitude={location.latitude} longitude={location.longitude} />
                 ) : (
                   <p className="tex-white flex justify-center items-center h-full">
                     Location data not available.

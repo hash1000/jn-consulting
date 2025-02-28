@@ -59,6 +59,18 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"card_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "71f9b350-a692-45a9-8905-65b1febd671a",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "early"
+									}
+								}
 							]
 						]
 					}
@@ -209,7 +221,6 @@
 				]
 			},
 			"backgroung_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
@@ -227,6 +238,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

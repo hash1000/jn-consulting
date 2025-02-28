@@ -59,6 +59,18 @@
 										}
 									]
 								}
+							],
+							[
+								"card_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "2fdebf62-d02a-47c2-bc66-56136dd7a4c1",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "pen"
+									}
+								}
 							]
 						]
 					}
@@ -137,7 +149,6 @@
 				]
 			},
 			"backgroung_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
@@ -155,6 +166,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

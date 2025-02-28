@@ -63,17 +63,27 @@
 									"value": "door",
 									"type": "Text"
 								}
+							],
+							[
+								"longitude_latitude",
+								{
+									"position": {
+										"lat": 48.8583736,
+										"lng": 2.2922926
+									},
+									"__TYPE__": "GeoPointContent"
+								}
 							]
 						]
 					}
 				]
 			},
-			"location_map": {
-				"__TYPE__": "GeoPointContent",
+			"longitude_latitude": {
 				"position": {
-					"lat": 48.8606111,
-					"lng": 2.337644
-				}
+					"lat": 48.8703712,
+					"lng": 2.3865198
+				},
+				"__TYPE__": "GeoPointContent"
 			}
 		},
 		"items": []

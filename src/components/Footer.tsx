@@ -17,7 +17,7 @@ const iconComponents: Record<string, IconType> = {
 export default async function Footer() {
   const client = createClient();
   const data = await client.getSingle("settings");
-  
+ 
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center max-w-[80%] mx-auto"
     >

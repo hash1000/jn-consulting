@@ -1,5 +1,5 @@
 {
-  "repositoryName": "jn-consulting-gmbh",
+  "repositoryName": "httjn-consulting",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./src/slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"

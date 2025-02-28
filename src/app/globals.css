@@ -10,7 +10,7 @@
 @apply w-3 bg-transparent
 }
 ::-webkit-scrollbar-thumb{
-@apply rounded-none bg-[#06263E] /*color trackbar*/
+@apply rounded-none bg-[#FFFFFF] /*color trackbar*/
 }
 }
 

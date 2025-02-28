@@ -162,6 +162,71 @@ export type CaecadDocument<Lang extends string = string> =
     Lang
   >;
 
+type CaeserviceDocumentDataSlicesSlice = AutomotiveServicesSlice | HeroSlice;
+
+/**
+ * Content for CaeService documents
+ */
+interface CaeserviceDocumentData {
+  /**
+   * Slice Zone field in *CaeService*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caeservice.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CaeserviceDocumentDataSlicesSlice> /**
+   * Meta Title field in *CaeService*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: caeservice.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *CaeService*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: caeservice.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *CaeService*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caeservice.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * CaeService document from Prismic
+ *
+ * - **API ID**: `caeservice`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CaeserviceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CaeserviceDocumentData>,
+    "caeservice",
+    Lang
+  >;
+
 /**
  * Item in *dropdown → dropdown*
  */
@@ -657,6 +722,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AutomotiveDocument
   | CaecadDocument
+  | CaeserviceDocument
   | GropdownDocument
   | HomepageDocument
   | IndustrialengineeringDocument
@@ -665,11 +731,11 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Item in *PageServices → PageServices → Primary → card*
+ * Item in *PageServices → CaeServices → Primary → card*
  */
 export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   /**
-   * card image field in *PageServices → PageServices → Primary → card*
+   * card image field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -679,7 +745,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_image: prismic.ImageField<never>;
 
   /**
-   * card heading field in *PageServices → PageServices → Primary → card*
+   * card heading field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -689,7 +755,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_heading: prismic.RichTextField;
 
   /**
-   * card sub heading field in *PageServices → PageServices → Primary → card*
+   * card sub heading field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -699,7 +765,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_sub_heading: prismic.RichTextField;
 
   /**
-   * card popup detail field in *PageServices → PageServices → Primary → card*
+   * card popup detail field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -709,7 +775,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_popup_detail: prismic.RichTextField;
 
   /**
-   * card popup heading field in *PageServices → PageServices → Primary → card*
+   * card popup heading field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -719,7 +785,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_popup_heading: prismic.RichTextField;
 
   /**
-   * card link field in *PageServices → PageServices → Primary → card*
+   * card link field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -735,7 +801,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   >;
 
   /**
-   * card popup background field in *PageServices → PageServices → Primary → card*
+   * card popup background field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -745,7 +811,7 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
   card_popup_background: prismic.ImageField<never>;
 
   /**
-   * popup field in *PageServices → PageServices → Primary → card*
+   * popup field in *PageServices → CaeServices → Primary → card*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -757,126 +823,11 @@ export interface AutomotiveServicesSliceDefaultPrimaryCardItem {
 }
 
 /**
- * Item in *PageServices → PageServices → Primary → cae card service*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryCaeCardServiceItem {
-  /**
-   * card image field in *PageServices → PageServices → Primary → cae card service*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.cae_card_service[].card_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  card_image: prismic.ImageField<never>;
-
-  /**
-   * card heading field in *PageServices → PageServices → Primary → cae card service*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.cae_card_service[].card_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  card_heading: prismic.RichTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → chemical engineering*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryChemicalEngineeringItem {
-  /**
-   * lable field in *PageServices → PageServices → Primary → chemical engineering*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.chemical_engineering[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → Dynamics*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryDynamicsItem {
-  /**
-   * label field in *PageServices → PageServices → Primary → Dynamics*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.dynamics[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → NVH*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryNvhItem {
-  /**
-   * lable field in *PageServices → PageServices → Primary → NVH*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.nvh[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → Strenth*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryStrenthItem {
-  /**
-   * lable field in *PageServices → PageServices → Primary → Strenth*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.strenth[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → Kinematics*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryKinematicsItem {
-  /**
-   * lable field in *PageServices → PageServices → Primary → Kinematics*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.kinematics[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → Aero and thermal analysis*
- */
-export interface AutomotiveServicesSliceDefaultPrimaryAeroAndThermalAnalysisItem {
-  /**
-   * lable field in *PageServices → PageServices → Primary → Aero and thermal analysis*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.aero_and_thermal_analysis[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
-}
-
-/**
- * Item in *PageServices → PageServices → Primary → Optimization*
+ * Item in *PageServices → CaeServices → Primary → Optimization*
  */
 export interface AutomotiveServicesSliceDefaultPrimaryOptimizationItem {
   /**
-   * lable field in *PageServices → PageServices → Primary → Optimization*
+   * lable field in *PageServices → CaeServices → Primary → Optimization*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -887,11 +838,11 @@ export interface AutomotiveServicesSliceDefaultPrimaryOptimizationItem {
 }
 
 /**
- * Primary content in *PageServices → PageServices → Primary*
+ * Primary content in *PageServices → CaeServices → Primary*
  */
 export interface AutomotiveServicesSliceDefaultPrimary {
   /**
-   * lable field in *PageServices → PageServices → Primary*
+   * lable field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -901,7 +852,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   lable: prismic.RichTextField;
 
   /**
-   * content field in *PageServices → PageServices → Primary*
+   * content field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -911,7 +862,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   content: prismic.RichTextField;
 
   /**
-   * card field in *PageServices → PageServices → Primary*
+   * card field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -923,7 +874,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   >;
 
   /**
-   * Background Image field in *PageServices → PageServices → Primary*
+   * Background Image field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -933,7 +884,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   background_image: prismic.ImageField<never>;
 
   /**
-   * span lable field in *PageServices → PageServices → Primary*
+   * span lable field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -943,91 +894,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   span_lable: prismic.KeyTextField;
 
   /**
-   * cae card service field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.cae_card_service[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  cae_card_service: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryCaeCardServiceItem>
-  >;
-
-  /**
-   * chemical engineering field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.chemical_engineering[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  chemical_engineering: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryChemicalEngineeringItem>
-  >;
-
-  /**
-   * Dynamics field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.dynamics[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  dynamics: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryDynamicsItem>
-  >;
-
-  /**
-   * NVH field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.nvh[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  nvh: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryNvhItem>
-  >;
-
-  /**
-   * Strenth field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.strenth[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  strenth: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryStrenthItem>
-  >;
-
-  /**
-   * Kinematics field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.kinematics[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  kinematics: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryKinematicsItem>
-  >;
-
-  /**
-   * Aero and thermal analysis field in *PageServices → PageServices → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: automotive_services.default.primary.aero_and_thermal_analysis[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  aero_and_thermal_analysis: prismic.GroupField<
-    Simplify<AutomotiveServicesSliceDefaultPrimaryAeroAndThermalAnalysisItem>
-  >;
-
-  /**
-   * Optimization field in *PageServices → PageServices → Primary*
+   * Optimization field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -1039,7 +906,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   >;
 
   /**
-   * cae content field in *PageServices → PageServices → Primary*
+   * cae content field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1049,7 +916,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   cae_content: prismic.RichTextField;
 
   /**
-   * chemical engineering contant field in *PageServices → PageServices → Primary*
+   * chemical engineering contant field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1059,7 +926,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
   chemical_engineering_contant: prismic.RichTextField;
 
   /**
-   * contant background image field in *PageServices → PageServices → Primary*
+   * contant background image field in *PageServices → CaeServices → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1070,7 +937,7 @@ export interface AutomotiveServicesSliceDefaultPrimary {
 }
 
 /**
- * PageServices variation for PageServices Slice
+ * CaeServices variation for PageServices Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1122,6 +989,22 @@ export interface CaeServiceSliceDefaultPrimaryCardItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   card_heading: prismic.RichTextField;
+
+  /**
+   * card link field in *CaeService → Default → Primary → card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cae_service.default.primary.card[].card_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  card_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1540,6 +1423,22 @@ export interface EngineeringServiceSliceDefaultPrimaryCardItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   card_heading: prismic.RichTextField;
+
+  /**
+   * card link field in *CadService → Default → Primary → card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: engineering_service.default.primary.card[].card_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  card_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1857,6 +1756,16 @@ export interface LocationSliceDefaultPrimaryLocationCardItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   place: prismic.KeyTextField;
+
+  /**
+   * longitude latitude field in *Location → Default → Primary → location card*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.default.primary.location_card[].longitude_latitude
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  longitude_latitude: prismic.GeoPointField;
 }
 
 /**
@@ -1906,14 +1815,14 @@ export interface LocationSliceDefaultPrimary {
   >;
 
   /**
-   * location map field in *Location → Default → Primary*
+   * longitude latitude field in *Location → Default → Primary*
    *
    * - **Field Type**: GeoPoint
    * - **Placeholder**: *None*
-   * - **API ID Path**: location.default.primary.location_map
+   * - **API ID Path**: location.default.primary.longitude_latitude
    * - **Documentation**: https://prismic.io/docs/field#geopoint
    */
-  location_map: prismic.GeoPointField;
+  longitude_latitude: prismic.GeoPointField;
 }
 
 /**
@@ -2615,6 +2524,9 @@ declare module "@prismicio/client" {
       CaecadDocument,
       CaecadDocumentData,
       CaecadDocumentDataSlicesSlice,
+      CaeserviceDocument,
+      CaeserviceDocumentData,
+      CaeserviceDocumentDataSlicesSlice,
       GropdownDocument,
       GropdownDocumentData,
       GropdownDocumentDataDropdownItem,
@@ -2638,13 +2550,6 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       AutomotiveServicesSlice,
       AutomotiveServicesSliceDefaultPrimaryCardItem,
-      AutomotiveServicesSliceDefaultPrimaryCaeCardServiceItem,
-      AutomotiveServicesSliceDefaultPrimaryChemicalEngineeringItem,
-      AutomotiveServicesSliceDefaultPrimaryDynamicsItem,
-      AutomotiveServicesSliceDefaultPrimaryNvhItem,
-      AutomotiveServicesSliceDefaultPrimaryStrenthItem,
-      AutomotiveServicesSliceDefaultPrimaryKinematicsItem,
-      AutomotiveServicesSliceDefaultPrimaryAeroAndThermalAnalysisItem,
       AutomotiveServicesSliceDefaultPrimaryOptimizationItem,
       AutomotiveServicesSliceDefaultPrimary,
       AutomotiveServicesSliceVariation,

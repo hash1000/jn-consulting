@@ -24,7 +24,14 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   const handleMouseLeave = () => {
     setIsHovered(null);
   };
+
   return (
+    <>
+<div className="text-center w-full">
+  
+  <h1 className="text-#06263E text-4xl font-bold mb-4 bg-[#51B0AB] rounded-md py-5 px-3">We Are Certified <span className="text-[#06263F]">ISO/IEC 27001:2022</span></h1>
+  </div>
+    
     <Bounded
     id="services"
       className="pt-[100px] mx-auto w-full 
@@ -32,7 +39,11 @@ const Services: FC<ServicesProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+
+
       <div className="text-center">
+        
+
         {/* Render the label */}
         <PrismicRichText
           field={slice.primary.lable}
@@ -112,6 +123,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
         </div>
       </div>
     </Bounded>
+    </>
   );
 };
 
