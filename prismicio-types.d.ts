@@ -565,22 +565,12 @@ export interface SettingsDocumentDataFooterLinkItem {
   /**
    * link field in *settings → Footer_link*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.footer_link[].link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.KeyTextField;
-
-  /**
-   * lable field in *settings → Footer_link*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.footer_link[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**

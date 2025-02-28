@@ -47,9 +47,7 @@ export default async function Footer() {
               index: number
             ) => (
               <div key={index} className="flex items-center">
-                <PrismicNextLink href={item.link ?? "#"} className="text-white">
-                  {item.lable}
-                </PrismicNextLink>
+                <PrismicNextLink field={item.link} className="text-white" />
                 {index !== data.data.footer_link.length - 1 && (
                   <span className="px-2 text-gray-500 dark:text-gray-400">
                     |

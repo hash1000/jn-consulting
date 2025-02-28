@@ -51,17 +51,14 @@
           "repeat": true,
           "fields": {
             "link": {
-              "type": "Text",
+              "type": "Link",
               "config": {
                 "label": "link",
-                "placeholder": ""
-              }
-            },
-            "lable": {
-              "type": "Text",
-              "config": {
-                "label": "lable",
-                "placeholder": ""
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
               }
             }
           }
