@@ -79,7 +79,7 @@ const CaeService: FC<CaeServiceProps> = ({ slice }) => {
                           className="list-disc list-inside text-white"
                         >
                           {Array.isArray(value) &&
-                            value.map((subItem: any, subIndex) => (
+                            value.map((subItem: any , subIndex) => (
                               <li key={subIndex}>
                                 {subItem?.label || subItem?.lable || ""}
                               </li>

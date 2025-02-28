@@ -4,7 +4,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import Image from "next/image";
 import { asText } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
 /**

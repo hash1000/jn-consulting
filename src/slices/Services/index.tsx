@@ -81,7 +81,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
           {slice.primary.card.map((item, index) => (
             <PrismicNextLink
             key={index}
-            href={item.card_link?.text || ""}
+            // href={item.card_link?.text || ""}
               field={item.card_link}
               className="md:p-3 xl:p-6 rounded-lg shadow-lg text-white transition-colors duration-300 flex flex-col h-full"
               style={{

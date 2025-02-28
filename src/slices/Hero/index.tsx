@@ -1,17 +1,11 @@
 "use client";
 import { FC } from "react";
-import { Content, createClient } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
-import dynamic from "next/dynamic";
 import { montserrat } from "@/app/font";
 import SingleImageMask from "@/components/SingleImageMask";
-import Image from "next/image";
-import { useRouter } from "next/router";
-const ImageMask = dynamic(() => import("@/components/ImageMask"), {
-  ssr: false,
-});
 
 /**
  * Props for `Hero`.

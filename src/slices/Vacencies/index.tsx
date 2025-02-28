@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import { montserrat } from "@/app/font";
 

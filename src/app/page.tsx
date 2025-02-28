@@ -1,13 +1,13 @@
 // "use client";
 // app/page.tsx
-import { Metadata } from "next";
+// import { Metadata } from "next";
 // import { useRouter } from "next/router";
-import { isFilled, asImageSrc } from "@prismicio/client";
+// import { isFilled, asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Tsparticles from "../components/Tsparticles";
-import Link from "next/link";
+// import Link from "next/link";
 
 
 export default async function Home() {
@@ -42,5 +42,3 @@ export default async function Home() {
     </div>
   );
 }
-
-// ... keep your existing generateMetadata function
