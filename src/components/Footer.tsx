@@ -42,19 +42,23 @@ export default async function Footer() {
       <div className="flex gap-2 relative" style={{ opacity: 100 }}>
         {data?.data?.footer_link?.length > 0 ? (
           data.data.footer_link.map(
+
             (
               item: Simplify<SettingsDocumentDataFooterLinkItem>,
               index: number
-            ) => (
-              <div key={index} className="flex items-center">
-                <PrismicNextLink field={item.link} className="text-white" />
-                {index !== data.data.footer_link.length - 1 && (
-                  <span className="px-2 text-gray-500 dark:text-gray-400">
-                    |
-                  </span>
-                )}
-              </div>
-            )
+            ) => {
+              return(
+                <div key={index} className="flex items-center">
+                  <PrismicNextLink field={item.link} className="text-white" />
+                  {index !== data.data.footer_link.length - 1 && (
+                    <span className="px-2 text-gray-500 dark:text-gray-400">
+                      |
+                    </span>
+                  )}
+                </div>
+              )
+            }
+            
           )
         ) : (
           <div className="text-gray-500 dark:text-gray-400">
@@ -69,7 +73,6 @@ export default async function Footer() {
             item: Simplify<SettingsDocumentDataFooterIconItem>,
             index: number
           ) => {
-            // Check if 'item.icon' is valid before using 'toLowerCase'
             const iconName = item.icon ? item.icon.toLowerCase() : null;
             const IconComponent = iconName ? iconComponents[iconName] : null;
             const imgUrl = item.link ? item.link.text : null;

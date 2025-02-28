@@ -91,6 +91,22 @@
           }
         }
       },
+      "iso_image": {
+        "type": "Image",
+        "config": {
+          "label": "ISO image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "qr_code": {
+        "type": "Image",
+        "config": {
+          "label": "QR Code",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

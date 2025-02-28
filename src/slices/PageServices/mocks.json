@@ -208,17 +208,6 @@
 					}
 				]
 			},
-			"cae_content": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading1",
-						"content": {
-							"text": "Steam"
-						}
-					}
-				]
-			},
 			"chemical_engineering_contant": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -230,28 +219,95 @@
 					}
 				]
 			},
-			"contant_background_image": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
-					"width": 2545,
-					"height": 2545
-				},
-				"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
-				"width": 2545,
-				"height": 2545,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
+			"nvh": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "tonight",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"strength": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "machinery",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"kinematics": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rod",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"aero_thermal_analysis": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "year",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"dynamics": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "composed",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

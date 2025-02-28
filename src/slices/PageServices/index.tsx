@@ -19,19 +19,7 @@ export type AutomotiveServicesProps =
 const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
   const [selectedCard, setSelectedCard] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
-  // const [showContant, setShowContant] = useState<number | null>(null);
   const [link, setLink] = useState<string | null>(null);
-  const [isHovered, setIsHovered] = useState<number | null>(null);
-
-  const handleMouseEnter = (index: number) => {
-    console.log("index", index);
-    setIsHovered(index);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(null);
-  };
-  // const normalizeString = (str: string) => str.toLowerCase().replace(/_/g, " ");
 
   return (
     <>
@@ -55,7 +43,6 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
             }}
           >
             <div className="w-full">
-              {/* Render the label */}
               <PrismicRichText
                 field={selectedCard?.card_popup_heading}
                 components={{
@@ -88,7 +75,6 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
 
         {/* Main Section */}
         <div className="text-center">
-          {/* Render the label */}
           <PrismicRichText
             field={slice.primary.lable}
             components={{
@@ -138,18 +124,11 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                 onClick={() => {
                   if (item.popup) {
                     if (!item.card_link || !("text" in item.card_link)) {
-                      // Ensure 'text' exists in card_link
                       setSelectedCard(item);
                       setShowModal(true);
                     }
-                  } else if (
-                    !item.popup &&
-                    item.card_link &&
-                    "text" in item.card_link
-                  ) {
-                    setLink(item.card_link.text ?? "");
                   } else {
-                    // setShowContant(index);
+                    setLink(item.card_link.text ?? "");
                   }
                 }}
                 className="rounded-lg shadow-lg hover:cursor-pointer text-white transition-colors duration-300 flex flex-col h-full w-[365px] max-h-[310px]"
@@ -182,34 +161,19 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                     )}
 
                     {/* Card Text */}
-                    <div
-                      className="flex-grow text-center"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={handleMouseLeave}
-                    >
+                    <div className="flex-grow text-center">
                       {item.card_heading && (
                         <div
-                          className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}
+                          className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
                         >
                           <PrismicRichText field={item.card_heading} />
                         </div>
                       )}
-
-                      {item.card_sub_heading && (
-                        <div
-                          className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}
-                        >
-                          <PrismicRichText field={item.card_sub_heading} />
-                        </div>
-                      )}
                     </div>
                   </div>
-                ) : link ? (
+                ) : (
                   <>
-                    <PrismicNextLink
-                      field={item.card_link}
-                      className="py-4"
-                    >
+                    <PrismicNextLink field={item.card_link} className="py-4">
                       {item.card_image?.url ? (
                         <div className="mb-4 mx-auto max-w-[365px] h-[180px] flex justify-center">
                           <Image
@@ -227,67 +191,17 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                           </span>
                         </div>
                       )}
-
-                      {/* Card Text */}
-                      <div className="flex-grow text-center"
-                      
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={handleMouseLeave}
-                     >
-                        {item.card_heading && (
-                          <div className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
-                            <PrismicRichText field={item.card_heading} />
+                      <div className="flex-grow text-center">
+                            {item.card_heading && (
+                              <div
+                                className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
+                              >
+                                <PrismicRichText field={item.card_heading} />
+                              </div>
+                            )}
                           </div>
-                        )}
-
-                        {item.card_sub_heading && (
-                          <div className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
-                            <PrismicRichText field={item.card_sub_heading} />
-                          </div>
-                        )}
-                      </div>
                     </PrismicNextLink>
                   </>
-                ) : (
-                  <div className="flex flex-col h-full w-full py-4">
-                    {/* Card Image */}
-                    {item.card_image?.url ? (
-                      <div className="mb-4 mx-auto max-w-[365px] h-[180px]">
-                        <Image
-                          src={item.card_image.url}
-                          alt={item.card_image.alt || "Card Image"}
-                          width={180}
-                          height={180}
-                          layout="intrinsic"
-                          className="object-cover rounded-md max-w-[365px] h-[180px]"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full h-[180px] bg-gray-700 rounded-md flex items-center justify-center">
-                        <span className="text-gray-300">
-                          No Image Available
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Card Text */}
-                    <div className="flex-grow text-center"
-                    
-                    onMouseEnter={() => handleMouseEnter(index)}
-                    onMouseLeave={handleMouseLeave}>
-                      {item.card_heading && (
-                        <div className={`text-xl font-bold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}`}>
-                          <PrismicRichText field={item.card_heading} />
-                        </div>
-                      )}
-
-                      {item.card_sub_heading && (
-                        <div className={`text-xl font-semibold mb-2 ${isHovered === index ? "text-[#51B0AB]" : "text-white"}}`}>
-                          <PrismicRichText field={item.card_sub_heading} />
-                        </div>
-                      )}
-                    </div>
-                  </div>
                 )}
               </div>
             ))}

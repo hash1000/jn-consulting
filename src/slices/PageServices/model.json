@@ -142,15 +142,6 @@
             }
           }
         },
-        "cae_content": {
-          "type": "StructuredText",
-          "config": {
-            "label": "cae content",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1,strong"
-          }
-        },
         "chemical_engineering_contant": {
           "type": "StructuredText",
           "config": {
@@ -160,12 +151,84 @@
             "multi": "heading1,strong"
           }
         },
-        "contant_background_image": {
-          "type": "Image",
+        "nvh": {
+          "type": "Group",
           "config": {
-            "label": "contant background image",
-            "constraint": {},
-            "thumbnails": []
+            "label": "NVH",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "strength": {
+          "type": "Group",
+          "config": {
+            "label": "strength",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "kinematics": {
+          "type": "Group",
+          "config": {
+            "label": "Kinematics",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "aero_thermal_analysis": {
+          "type": "Group",
+          "config": {
+            "label": "Aero thermal analysis",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "dynamics": {
+          "type": "Group",
+          "config": {
+            "label": "Dynamics",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
+              }
+            }
           }
         }
       },
