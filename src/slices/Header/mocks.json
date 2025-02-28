@@ -43,14 +43,6 @@
 										"text": "damage"
 									}
 								}
-							],
-							[
-								"lable",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "cow",
-									"type": "Text"
-								}
 							]
 						]
 					}
@@ -72,14 +64,6 @@
 										"url": "https://prismic.io",
 										"text": "because"
 									}
-								}
-							],
-							[
-								"lable",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "person",
-									"type": "Text"
 								}
 							]
 						]

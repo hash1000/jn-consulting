@@ -2255,16 +2255,6 @@ export interface TopNavbarSliceDefaultPrimaryNavbarItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * lable field in *Header → Default → Primary → Navbar*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navbar[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
 }
 
 /**
@@ -2280,16 +2270,6 @@ export interface TopNavbarSliceDefaultPrimaryServiceSubMenuItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * lable field in *Header → Default → Primary → service sub menu*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.service_sub_menu[].lable
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  lable: prismic.KeyTextField;
 }
 
 /**

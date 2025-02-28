@@ -36,13 +36,6 @@
                   "allowText": true,
                   "repeat": false
                 }
-              },
-              "lable": {
-                "type": "Text",
-                "config": {
-                  "label": "lable",
-                  "placeholder": ""
-                }
               }
             }
           }
@@ -62,13 +55,6 @@
                   "allowTargetBlank": true,
                   "allowText": true,
                   "repeat": false
-                }
-              },
-              "lable": {
-                "type": "Text",
-                "config": {
-                  "label": "lable",
-                  "placeholder": ""
                 }
               }
             }

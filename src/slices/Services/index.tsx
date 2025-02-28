@@ -78,8 +78,9 @@ const Services: FC<ServicesProps> = ({ slice }) => {
           data-aos-delay="50"
           data-aos-offset="200"
         >
-          {slice.primary.card.map((item, index) => (
-            <PrismicNextLink
+          {slice.primary.card.map((item, index) => {
+            return(
+<PrismicNextLink
             key={index}
             // href={item.card_link?.text || ""}
               field={item.card_link}
@@ -119,7 +120,10 @@ const Services: FC<ServicesProps> = ({ slice }) => {
                 )}
               </div>
             </PrismicNextLink>
-          ))}
+            )
+          }
+            
+        )}
         </div>
       </div>
     </Bounded>
