@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <div
         className={`flex xl:justify-center flex-col xl:flex-row ${
           slice.primary.hexa_grid?.length > 0 && "items-center"
-        } w-full pt-28 relative max-w-[1920px] mx-auto min-h-[100vh] gap-3`}
+        } w-full sm:pt-36 lg:pt-28 relative max-w-[1920px] mx-auto min-h-[100vh] gap-3`}
         data-aos="fade-right"
         data-aos-offset="200"
       >
@@ -36,7 +36,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           data-aos="fade-right"
           data-aos-delay="200"
           data-aos-offset="200"
-          className="flex flex-col  px-9 ps-20 pr-9"
+          className="flex flex-col px-9 ps-20 pr-9"
         >
           {/* Subheading */}
           <PrismicRichText

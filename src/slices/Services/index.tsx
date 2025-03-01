@@ -25,8 +25,8 @@ const Services: FC<ServicesProps> = ({ slice }) => {
     setIsHovered(null);
   };
   return (
-    <>
-      <div className="bg-[#51B0AB] ">
+    <div className="pt-[200px] lg:pt-[20px]">
+      <div className="bg-[#51B0AB]">
         <div className="flex items-center justify-center w-full px-4 py-10">
           {/* ISO Image */}
           <Image
@@ -66,7 +66,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
 
       <Bounded
         id="services"
-        className="pt-[100px] mx-auto w-full 
+        className="mx-auto w-full 
       "
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
@@ -153,7 +153,7 @@ const Services: FC<ServicesProps> = ({ slice }) => {
           </div>
         </div>
       </Bounded>
-    </>
+    </div>
   );
 };
 
