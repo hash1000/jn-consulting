@@ -77,7 +77,7 @@ const CooperateLink: FC<CooperateLinkProps> = ({ slice }) => {
               <div key={index} className="flex gap-4 items-center">
                 {/* Icon Link */}
                 <PrismicNextLink
-                  href={item.link.link_type}
+                  field={item.link}
                   className="rounded-full bg-[#6FDCD6] p-3 flex items-center justify-center"
                 >
                   {IconComponent && <IconComponent className="text-2xl" />}

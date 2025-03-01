@@ -24,14 +24,44 @@ const Services: FC<ServicesProps> = ({ slice }) => {
   const handleMouseLeave = () => {
     setIsHovered(null);
   };
-console.log("slice cae service" , slice);
   return (
     <>
-      <div className="text-center w-full">
-        <h1 className="text-#06263E text-4xl font-bold mb-4 bg-[#51B0AB] rounded-md py-5 px-3">
-          We Are Certified{" "}
-          <span className="text-[#06263F]">ISO/IEC 27001:2022</span>
-        </h1>
+      <div className="bg-[#51B0AB] ">
+        <div className="flex items-center justify-center w-full px-4 py-10">
+          {/* ISO Image */}
+          <Image
+            src={slice.primary.iso_image.url || "/placeholder.png"}
+            alt={slice.primary.iso_image.alt || "ISO Certification"}
+            width={150}
+            height={100}
+          />
+
+          {/* Certification Text */}
+          <h1 className="text-[#06263E] text-4xl font-bold mb-4 text-center">
+            We Are Certified
+            <span className=" block text-5xl text-white px-4 py-2 ">
+              ISO/IEC 27001:2022
+            </span>
+          </h1>
+
+          <Image
+            src={slice.primary.iso_image.url || "/placeholder.png"}
+            alt={slice.primary.iso_image.alt || "ISO Certification"}
+            width={150}
+            height={100}
+          />
+        </div>
+      </div>
+
+      {/* QR Code */}
+      <div className=" w-full flex justify-center items-center my-3">
+        <Image
+          src={slice.primary.qr_code.url || "/placeholder.png"}
+          alt={slice.primary.qr_code.alt || "QR Code"}
+          width={100}
+          height={100}
+          className="rounded-lg"
+        />
       </div>
 
       <Bounded
@@ -121,7 +151,7 @@ console.log("slice cae service" , slice);
               );
             })}
           </div>
-        </div>  
+        </div>
       </Bounded>
     </>
   );

@@ -1,6 +1,6 @@
 "use client";
 import { FC, useState } from "react";
-import { Content } from "@prismicio/client";
+import { asText, Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
@@ -19,7 +19,7 @@ export type AutomotiveServicesProps =
 const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
   const [selectedCard, setSelectedCard] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
-  const [link, setLink] = useState<string | null>(null);
+  const normalizeString = (str: string) => str.toLowerCase().replace(/_/g, " ");
 
   return (
     <>
@@ -118,69 +118,36 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
             data-aos-delay="50"
             data-aos-offset="200"
           >
-            {slice.primary.card.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => {
-                  if (item.popup) {
-                    if (!item.card_link || !("text" in item.card_link)) {
-                      setSelectedCard(item);
-                      setShowModal(true);
+            {slice.primary.card.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  onClick={() => {
+                    if (item.popup) {
+                      if (!item.card_link || !("text" in item.card_link)) {
+                        setSelectedCard(item);
+                        setShowModal(true);
+                      }
                     }
-                  } else {
-                    setLink(item.card_link.text ?? "");
-                  }
-                }}
-                className="rounded-lg shadow-lg hover:cursor-pointer text-white transition-colors duration-300 flex flex-col h-full w-[365px] max-h-[310px]"
-                style={{
-                  background:
-                    "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
-                }}
-              >
-                {/* Card Link */}
-                {item.popup ? (
-                  <div className="flex flex-col h-full w-full py-4">
-                    {/* Card Image */}
-                    {item.card_image?.url ? (
-                      <div className="mb-4 mx-auto max-w-[365px] h-[180px]">
-                        <Image
-                          src={item.card_image.url}
-                          alt={item.card_image.alt || "Card Image"}
-                          width={180}
-                          height={180}
-                          layout="intrinsic"
-                          className="object-cover rounded-md max-w-[365px] h-[180px]"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full h-[180px] bg-gray-700 rounded-md flex items-center justify-center">
-                        <span className="text-gray-300">
-                          No Image Available
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Card Text */}
-                    <div className="flex-grow text-center">
-                      {item.card_heading && (
-                        <div
-                          className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
-                        >
-                          <PrismicRichText field={item.card_heading} />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <PrismicNextLink field={item.card_link} className="py-4">
+                  }}
+                  className="rounded-lg shadow-lg hover:cursor-pointer text-white transition-colors duration-300 flex flex-col h-full w-[365px] min-h-[310px]"
+                  style={{
+                    background:
+                      "radial-gradient(at top center, #235683 0%, #0D2F4B 100%)",
+                  }}
+                >
+                  {/* Card Link */}
+                  {item.popup ? (
+                    <div className="flex flex-col h-full w-full py-4">
+                      {/* Card Image */}
                       {item.card_image?.url ? (
-                        <div className="mb-4 mx-auto max-w-[365px] h-[180px] flex justify-center">
+                        <div className="mb-4 mx-auto max-w-[365px] h-[180px]">
                           <Image
                             src={item.card_image.url}
                             alt={item.card_image.alt || "Card Image"}
                             width={180}
                             height={180}
+                            layout="intrinsic"
                             className="object-cover rounded-md max-w-[365px] h-[180px]"
                           />
                         </div>
@@ -191,24 +158,87 @@ const AutomotiveServices: FC<AutomotiveServicesProps> = ({ slice }) => {
                           </span>
                         </div>
                       )}
+
+                      {/* Card Text */}
                       <div className="flex-grow text-center">
-                            {item.card_heading && (
-                              <div
-                                className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
-                              >
-                                <PrismicRichText field={item.card_heading} />
-                              </div>
-                            )}
+                        {item.card_heading && (
+                          <div
+                            className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
+                          >
+                            <PrismicRichText field={item.card_heading} />
                           </div>
-                    </PrismicNextLink>
-                  </>
-                )}
-              </div>
-            ))}
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <PrismicNextLink field={item.card_link} className="py-4">
+                        {item.card_image?.url ? (
+                          <div className="mb-4 mx-auto max-w-[365px] h-[180px] flex justify-center">
+                            <Image
+                              src={item.card_image.url}
+                              alt={item.card_image.alt || "Card Image"}
+                              width={180}
+                              height={180}
+                              className="object-cover rounded-md max-w-[365px] h-[180px]"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-full h-[180px] bg-gray-700 rounded-md flex items-center justify-center">
+                            <span className="text-gray-300">
+                              No Image Available
+                            </span>
+                          </div>
+                        )}
+                        <div className="flex-grow text-center">
+                          {item.card_heading && (
+                            <div
+                              className={`text-xl font-bold mb-2 hover:text-[#51B0AB] text-white`}
+                            >
+                              <PrismicRichText field={item.card_heading} />
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-3">
+                          {Object.entries(slice.primary).map(
+                            ([key, value], i) => {
+                              const cardHeadingKey = asText(item.card_heading);
+
+                              if (
+                                normalizeString(key) ===
+                                normalizeString(cardHeadingKey)
+                              ) {
+                                return (
+                                  <ul
+                                    key={i}
+                                    className="list-disc list-inside space-y-2 text-gray-300 text-start"
+                                  >
+                                    {Array.isArray(value) &&
+                                      value.map((subItem, subIndex) => {
+                                        return (
+                                          <li key={subIndex}>
+                                            {
+                                              (subItem as { label: string })
+                                                .label
+                                            }
+                                          </li>
+                                        );
+                                      })}
+                                  </ul>
+                                );
+                              }
+                            }
+                          )}
+                        </div>
+                      </PrismicNextLink>
+                    </>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </Bounded>
-
       <div className="border-b-4 border-white"></div>
     </>
   );

@@ -197,10 +197,10 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"lable",
+								"label",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "cow",
+									"value": "fish",
 									"type": "Text"
 								}
 							]
@@ -273,24 +273,6 @@
 					}
 				]
 			},
-			"aero_thermal_analysis": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"label",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "year",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
 			"dynamics": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -302,6 +284,24 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "composed",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"aero_and_thermal_analysis": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "event",
 									"type": "Text"
 								}
 							]

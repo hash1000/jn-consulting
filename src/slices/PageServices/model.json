@@ -6,7 +6,7 @@
   "variations": [
     {
       "id": "default",
-      "name": "CaeServices",
+      "name": "PageServices",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -132,10 +132,10 @@
             "label": "Optimization",
             "repeat": true,
             "fields": {
-              "lable": {
+              "label": {
                 "type": "Text",
                 "config": {
-                  "label": "lable",
+                  "label": "label",
                   "placeholder": ""
                 }
               }
@@ -199,10 +199,10 @@
             }
           }
         },
-        "aero_thermal_analysis": {
+        "dynamics": {
           "type": "Group",
           "config": {
-            "label": "Aero thermal analysis",
+            "label": "Dynamics",
             "repeat": true,
             "fields": {
               "label": {
@@ -215,10 +215,10 @@
             }
           }
         },
-        "dynamics": {
+        "aero_and_thermal_analysis": {
           "type": "Group",
           "config": {
-            "label": "Dynamics",
+            "label": "Aero and thermal analysis",
             "repeat": true,
             "fields": {
               "label": {
